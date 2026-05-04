@@ -1,0 +1,114 @@
+
+
+body {
+    margin: 0;
+	background: linear-gradient(to bottom, rgb(144, 230, 245) 0%, rgb(49, 104, 175) 55%, rgb(17, 40, 117) 100%);
+
+}
+
+
+/*handshake css*/
+
+#handshake {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color:cornflowerblue;
+    
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			cursor: pointer;
+			z-index: 99998;
+		}
+#handshake:active {
+    background-color:cornflowerblue;
+            font-style: italic;
+    
+}
+
+#handshakeButton {
+			position: absolute;
+			background-color:cornflowerblue;
+            color: cornsilk;
+            font-size: 40px;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			cursor: pointer;
+			z-index: 99999;
+		}
+#handshakeButton:hover {
+    background-color:cornflowerblue;
+            font-style: italic;
+    
+}
+
+/* intro sequence css */
+
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 100000;
+    opacity: 0;
+    pointer-events: none;
+}
+    .allkelps {
+        display: flex;
+        gap: 3px;
+        width: 100%;
+        min-height: 100vh;
+        position:relative;
+        z-index: 1;
+        /* top:300px; */
+        height: 100vh;
+        align-items: stretch;
+        justify-content: flex-start;
+        
+    }
+    .kelpcontainer {
+		display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative; 
+        flex: 1 1 0;
+        /* top: 300px;   */
+	}
+	.kelpwater {
+		background-color: transparent;
+		padding: 0;
+		flex-grow: 1;
+	}
+	.kelp {
+		color: rgb(28, 59, 39);
+		height: 16vh;
+        width: 100%;
+		transition: height 4s ease;
+	}
+	.kelp:hover {
+		height: 75vh;
+	}
+
+    .dive-link {
+        position: fixed;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        background-color: transparent;
+        color: white;
+    }
+	
+/* text css */

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>drift</title>
+    <!--  coded by Sasha Lee CEESHUR -->
+</head>
+
+<body>
+
+    <div id="intro"></div>
+
+    <div class="drifter"></div>
+
+<div class="allkelps">
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+    <div class="kelpcontainer">
+        <div class="kelpwater"></div>
+        <div class="kelp"></div>
+    </div>
+
+</div>
+
+<a href="dive/dive.html">dive</a>
+<a href="demos/index.html">DEMOS DEMOS</a>
+
+
+
+    <script>
+
+        // INTRO ANIMATION
+        // FIX DELAY
+
+        let intro = document.querySelector("#intro");
+        let body = document.querySelector("body");
+
+        let drifter = document.querySelector(".drifter");
+        let drifterX = event.clientX;
+        let drifterY = event.clientY;
+
+        //mouse
+        body.addEventListener('mousemove', function(event) {
+			drifter.style.left = event.x + "px";
+			drifter.style.top = event.y + "px";
+		})
+
+        setTimeout(function () {
+            intro.innerHTML = "When you picture the ocean,";
+            intro.style.fontSize = "40px";
+        }, 2000);
+
+        setTimeout(function () {
+            intro.innerHTML = "When you picture the ocean, what do you see?";
+        }, 2000);
+
+        setTimeout(function () {
+            intro.style.backgroundColor = "rgb(2,0,30)";
+        }, 2000);
+
+        // patterns are random and sound based: the sound tone.js plays determines the sound.
+    </script>
+
+</body>
+
+
+</html>

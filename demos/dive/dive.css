@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    background-color: rgb(16, 45, 74);
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.08) 0px,
+        rgba(255, 255, 255, 0.08) 1px,
+        transparent 1px,
+        transparent 20px
+    );
+}
+
+.drifter {
+    z-index: 1000;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-radius: 45%;
+    background-color: rgba(157, 244, 27, 0.301);
+    border: 2px solid;
+    border-color: rgba(178, 254, 64, 0.678);
+    pointer-events: none;
+    transition: border-radius 0.3s ease, width 3s linear, height 3s linear;}
+
+#hublot {
+    background-color: rgb(63, 182, 215);
+    width: 90vw;
+    height: 82vh;
+    transition: background-color 12s ease, width 2s linear, height 2s linear;
+    position: relative;
+    overflow: hidden;
+}
+
+#paperText {
+    position: absolute;
+    left: 50%;
+    bottom: 4vh;
+    transform: translateX(-50%);
+    width: min(92vw, 1200px);
+    max-height: 24vh;
+    overflow: auto;
+    color: rgba(236, 242, 255, 0.92);
+    font-family: "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    z-index: 3;
+}
+
+#patternStrip {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 78vw;
+    max-width: 980px;
+    display: flex;
+    gap: 14px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.patternTile {
+    flex: 1 1 0;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+}
+
+#patternStrip.active {
+    opacity: 1;
+}
+
+.patternTile.pattern-laser {
+    background-image:
+        repeating-linear-gradient(
+            110deg,
+            rgba(255, 0, 255, 0.95) 0px,
+            rgba(255, 0, 255, 0.95) 1px,
+            transparent 1px,
+            transparent 18px
+        ),
+        repeating-linear-gradient(
+            -110deg,
+            rgba(0, 255, 255, 0.95) 0px,
+            rgba(0, 255, 255, 0.95) 1px,
+            transparent 1px,
+            transparent 22px
+        );
+    animation: laser-drift 4s linear infinite;
+}
+
+.patternTile.pattern-blobs {
+    background-image: var(--blob-pattern);
+    animation: blob-wobble 3.2s ease-in-out infinite alternate;
+}
+
+.patternTile.pattern-grid {
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(255, 255, 0, 0.95) 0px,
+            rgba(255, 255, 0, 0.95) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(255, 105, 180, 0.95) 0px,
+            rgba(255, 105, 180, 0.95) 1px,
+            transparent 1px
+        );
+    background-size: 24px 24px, 24px 24px;
+    animation: grid-undulate 3.5s ease-in-out infinite alternate;
+}
+
+.patternTile.pattern-squares {
+    position: relative;
+    overflow: hidden;
+    animation: squares-shift 5s ease-in-out infinite alternate;
+}
+
+.patternTile.pattern-squares .square-dot {
+    position: absolute;
+    animation: square-color-shift 3.4s ease-in-out infinite alternate;
+}
+
+@keyframes laser-drift {
+    0% {
+        background-position: 0px 0px, 0px 0px;
+    }
+    100% {
+        background-position: 120px -80px, -120px 80px;
+    }
+}
+
+@keyframes blob-wobble {
+    0% {
+        transform: translate(-50%, -50%) scale(0.98);
+        background-position: 0px 0px;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.02);
+        background-position: 24px -12px;
+    }
+}
+
+@keyframes grid-undulate {
+    0% {
+        background-size: 22px 22px, 22px 22px;
+        background-position: 0px 0px, 0px 0px;
+    }
+    100% {
+        background-size: 30px 18px, 18px 30px;
+        background-position: 12px 6px, -12px -6px;
+    }
+}
+
+@keyframes squares-shift {
+    0% {
+        filter: brightness(0.9) saturate(90%);
+    }
+    100% {
+        filter: brightness(1.08) saturate(96%);
+    }
+}
+
+@keyframes square-color-shift {
+    0% {
+        background-color: var(--square-dark);
+    }
+    100% {
+        background-color: var(--square-light);
+    }
+}
+
+
+ /* Created structure: <span class="word"> containing <span class="char ...">.
+ Char class types: char-letter-[a-z], char-number-[0-9], and char-symbol. */
+.char-letter-p {
+    color: rgb(11, 31, 160);
+    scale: 400%;
+
+}
+
+.char {
+    display: inline-block;
+    transition: transform 1.1s linear;
+}
+
+.char:hover {
+    transform: rotate(130deg);
+    transition: transform 0.1s linear;
+}

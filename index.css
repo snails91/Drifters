@@ -1,0 +1,56 @@
+
+* {
+    background-color: cornsilk;
+}
+#intro {
+    color:cornflowerblue;
+    background-color: cornsilk;
+	z-index: 1000;
+}
+
+/* MAKE VARIABLE DRIVEN - so that it can be randomized */
+
+.drifter {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		transform: translate(-50%, -50%);
+        border-radius: 45%;
+		background-color: rgb(178, 254, 64);
+	}
+
+		
+
+    .allkelps {
+        display: flex;
+        gap: 1px;
+        max-height: 50vw;
+        background-color:rgb(45, 92, 152);
+        position:relative;
+        /* top:300px; */
+        height: 200px;
+        
+    }
+    .kelpcontainer {
+		display: flex;
+	        transform: rotate(90deg);  
+
+        position: relative; 
+        width:800px;  
+        /* top: 300px;   */
+	}
+	.kelpwater {
+		background-color: rgb(45, 92, 152);
+		padding: 20px;
+		flex-grow: 1;
+	}
+	.kelp {
+		background-color: rgb(28, 59, 39);
+		padding: 20px;
+		flex-grow: 0;
+		transition: flex-grow 3s;
+	}
+	.kelp:hover {
+		flex-grow: 10;
+	}
+	

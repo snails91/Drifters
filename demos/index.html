@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+    <title>drift</title>
+    <!--  coded by Sasha Lee CEESHUR, additions with Cursor -->
+
+    <!-- WebGazer: load bundle from CDN, or use src="webgazer.js" after downloading from https://webgazer.cs.brown.edu/ -->
+    <script src="https://cdn.jsdelivr.net/npm/webgazer@3.5.3/dist/webgazer.min.js" type="text/javascript"></script>
+    <!-- Tone.JS Library -->
+     <script src="https://unpkg.com/tone"></script>
+</head>
+
+<body>
+
+    <div id="handshakeButton">Look deeper</div>
+    <div id="handshake"></div>
+
+     <div id="intro"></div>
+
+
+
+    <div class="allkelps">
+        <div class="kelpcontainer">
+            <div class="kelpwater"></div>
+            <div class="kelp">kelp kelp kelp kelp</div>
+        </div>
+    </div>
+
+    <a class="dive-link" href="dive/dive.html">dive</a>
+
+
+    <script>
+
+//handshake
+let handshake = document.querySelector("#handshake");
+let handshakeButton = document.querySelector("#handshakeButton");
+let intro = document.querySelector("#intro");
+
+function startWebGazer() {
+    if (typeof webgazer === "undefined") {
+        console.warn("WebGazer script did not load; check network or script src.");
+        return;
+    }
+    intro.style.zIndex = "5";
+    webgazer
+        .setGazeListener(function (data, elapsedTime) {
+            if (data == null) return;
+            const x = data.x;
+            const y = data.y;
+            console.log("Looking at:", x, y);
+        })
+        .begin();
+}
+
+		handshakeButton.addEventListener('click', function() {
+			Tone.start();
+			handshake.style.display = 'none';
+            handshakeButton.style.display = 'none';
+
+    setTimeout(function () {
+    intro.innerHTML = "When you picture the ocean,";
+    intro.style.fontSize = "20px";
+    intro.style.backgroundColor = "cornflowerblue";
+    intro.style.color = "rgb(2,0,30)";
+    intro.style.opacity = "1";
+    }, 0);
+
+    setTimeout(function () {
+    intro.innerHTML = "When you picture the ocean, what do you see?";
+    intro.style.backgroundColor = "cornflowerblue"
+    }, 3000);
+
+    setTimeout(function () {
+    intro.style.backgroundColor = "rgb(2,0,30)";
+    intro.style.color = "rgb(200,40,80)";
+    startWebGazer();
+    }, 4000);
+		});
+
+// tone 
+		let synth = new Tone.Synth().toDestination();
+
+    </script>
+
+</body>
+
+
+</html>
