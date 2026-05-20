@@ -4,46 +4,2480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 
     <title>drift</title>
     <!--  coded by Sasha Lee CEESHUR, additions with Cursor -->
 
-    <!-- WebGazer: webcam APIs need a secure context (HTTPS, or http://localhost). See https://webgazer.cs.brown.edu/ -->
-    <script src="https://cdn.jsdelivr.net/npm/webgazer@3.5.3/dist/webgazer.min.js" type="text/javascript"></script>
-    <!-- Tone.JS Library -->
-     <script src="https://unpkg.com/tone"></script>
+    <!-- WebGazer + Tone load on demand (see loadWebGazerScript / loadToneScript) — keeps first paint fast -->
 </head>
 
 <body>
 
+    <div class="customMouse" aria-hidden="true"></div>
+
     <div id="handshakeButton">Look deeper</div>
     <div id="handshake"></div>
+    <div id="resurfaceCredits" class="resurface-credits" hidden aria-hidden="true">
+        <p id="resurfaceCreditAuthor" class="resurface-credits__line"></p>
+        <p id="resurfaceCreditWebgazer" class="resurface-credits__line"></p>
+        <p id="resurfaceCreditYoutube" class="resurface-credits__line resurface-credits__line--url"></p>
+    </div>
 
      <div id="intro"></div>
+     <div id="midwater" class="depth-section" data-depth="midwater">
+        <span class="depth-text">Digital particle image velocimetry (DPIV) is the digital counterpart of conventional laser speckle velocimetry (LSV) and particle image velocimetry (PIV) techniques. In this novel, two-dimensional technique, digitally recorded video images are analyzed computationally, removing both the photographic and opto-mechanical processing steps inherent to PIV and LSV. The directional ambiguity generally associated with PIV and LSV is resolved by implementing local spatial cross-correlations between two sequential single-exposed particle images. The images are recorded at video rate (30 Hz or slower) which currently limits the application of the technique to low speed flows until digital, high resolution video systems with higher framing rates become more economically feasible. Sequential imaging makes it possible to study unsteady phenomena like the temporal evolution of a vortex ring described in this paper. The spatial velocity measurements are compared with data obtained by direct measurement of the separation of individual particle pairs. Recovered velocity data are used to compute the spatial and temporal vorticity distribution and the circulation of the vortex ring.</span>
+     </div>
+     <div id="midnight" class="depth-section" data-depth="midnight">
+        <span class="depth-text">DeepPIV measurements of filtration rates were conducted on specimens of Bathochordaeus that ranged in trunk length from 0.9 to 2.7 cm (Table 1). The smallest of these (BS7, Table 1) represents the minimum size limit for which flow measurements can be resolved with the current instrumentation. Filtration rates generally increased with larvacean size, which is consistent with laboratory measurements of smaller larvaceans in the genus Oikopleura (32, 33). The average filtration rate for giant larvaceans with a trunk length of greater than 1.5 cm was 42.9 liters hour−1; maximum filtration rate was 76.2 liters hour−1 (Table 1). These rate measurements were compared with a biomechanical model for smaller Oikopleura species that uses tail morphology and kinematics during pumping to estimate filtration rates (fig. S2) (21). The scaled-up rates from the biomechanical model matched B. stygius filtration rates relatively well; however, differences between the Oikopleura model and measured rates for B. mcnutti differed by nearly a factor of 2 for one individual (BM1, Table 1). These differences may be attributed to variations in tail kinematics between species and/or divergences in tail chamber shape.
+        </span> </div>
+     <div id="abyss" class="depth-section" data-depth="abyss">
+        <span class="depth-text">Within the laser housing is a continuous, 1-W, 671-nm laser (Laserglow Technologies) and line-generating optics (Edmund Optics) that illuminate a sheet of light approximately 1 mm thick in front of the ROV science camera (FCB-EV7100; Sony Corporation). The laser sheet plane is approximately 50 cm in front of the camera dome, and the laser sheet optics can illuminate an area as large as 20 cm × 20 cm in front of the camera. The ROV science camera records high-definition (1920 pixel × 1080 pixel), progressive format video at 60 frames per second, and the camera housing and optics (Mini Zeus II; Insite Pacific Incorporated) are specially designed to minimize image distortion. The science camera has a 10× optical zoom, allowing for image fields of view ranging in size from 13 cm × 7 cm to 165 cm × 90 cm while focused on the laser sheet. The videos were recorded on external drives (AJA Video Systems) using the camera’s high-definition multimedia interface output and stored for further data analysis. Giant larvaceans were observed from June to December 2015 using DeepPIV (mounted to MiniROV; fig. S1) during cruises aboard the RVs Western Flyer and Rachel Carson. During 13 separate deployments of the instrument, we observed 71 individuals of the genus Bathochordaeus (specifically B. stygius and blue-tailed Bathochordaeus) and collected DeepPIV measurements on 24 individuals, resulting in nearly 49 hours of high-definition video. Criteria for selecting clips to measure particle streak length included the following: (i) limited ROV motion, (ii) accurate positioning of the laser sheet with respect to the organism (that is, the pumping tail and trunk needed to be bisected by a 1-mm-thick laser sheet), and (iii) conditions (i) and (ii) were met for at least a single pumping cycle of the tail. These are similar criteria used by other studies conducting in situ fluid motion measurements induced by swimming zooplankton (31, 41). Movie S1 shows an example video clip (for BS5, Table 1), where the larvacean undergoes more than six tail-beat cycles.
+        </span> </div>
+     <div id="hadal" class="depth-section" data-depth="hadal">
+        <span class="depth-text">A quantitative analysis of expressed transcripts enabled by in situ preservation of the specimen allowed identification of highly expressed processes in Pegea sp. at the time of capture. Considering the top 10% of expressed transcripts (1088 transcripts) from replicate tissue samples (n = 2), we see expected enrichment in protein translation and energy metabolism (table S8). A notable highly expressed biological process from this soft-bodied organism was metabolism of hyaluronan (table S8). The genes described for hyaluronan metabolism in Pegea sp. all encode proteins with a hyaluronan binding domain, and homologs are associated with mediating binding between extracellular matrix proteins and hyaluronan to regulate hyaluronan synthesis, degradation, and localization. Hyaluronan is a high–molecular weight polysaccharide usually associated with the extracellular matrix of cells and animal connective tissues (24). Hyaluronan forms a structural hydrogel with other extracellular matrix components such as collagen, with transcripts encoding many collagens among the most highly expressed genes in Pegea sp. (Fig. 4).
+</span>
+     </div>
 
-
-
-    <div class="allkelps">
-        <div class="kelpcontainer">
-            <div class="kelpwater"></div>
-            <div class="kelp">kelp kelp kelp kelp</div>
-        </div>
-    </div>
 
     <a class="dive-link" href="dive/dive.html">dive</a>
 
+
+    <button type="button" id="depthDescend" class="depth-descend" hidden aria-label="Next">
+        <span class="depth-descend__swim-ring" aria-hidden="true">
+            <span class="depth-descend__swim-o" style="--swim-i: 0">o</span>
+            <span class="depth-descend__swim-o" style="--swim-i: 1">o</span>
+            <span class="depth-descend__swim-o" style="--swim-i: 2">o</span>
+            <span class="depth-descend__swim-o" style="--swim-i: 3">o</span>
+        </span>
+        <span class="depth-descend__label">next</span>
+    </button>
+    <script src="depth-nav.js"></script>
 
     <script>
 
 //handshake
 let handshake = document.querySelector("#handshake");
 let handshakeButton = document.querySelector("#handshakeButton");
+let resurfaceCredits = document.querySelector("#resurfaceCredits");
+let resurfaceCreditAuthor = document.querySelector("#resurfaceCreditAuthor");
+let resurfaceCreditWebgazer = document.querySelector("#resurfaceCreditWebgazer");
+let resurfaceCreditYoutube = document.querySelector("#resurfaceCreditYoutube");
 let intro = document.querySelector("#intro");
+let customMouse = document.querySelector(".customMouse");
+let lastMousePoint = { x: 0, y: 0 };
+let gazePreferenceActive = false;
+let firstGazeSampleLogged = false;
+let lastGazeSampleTime = 0;
+let smoothedGazePoint = null;
+let webGazerStarted = false;
+let webGazerStarting = false;
+let introTimers = [];
+let webGazerScriptPromise = null;
+let toneScriptPromise = null;
+const GAZE_STALE_MS = 350;
+const CALIBRATION_CLICKS_REQUIRED = 5;
+const GAZE_SMOOTHING = 0.18;
+const GAZE_DEAD_ZONE_PX = 10;
+
+function getGazeXY(data) {
+    if (data == null || typeof data !== "object") return null;
+    let x = data.x;
+    let y = data.y;
+    if (typeof x !== "number" || typeof y !== "number" || Number.isNaN(x) || Number.isNaN(y)) {
+        return null;
+    }
+    return { x: x, y: y };
+}
+
+function shouldUseMouseForCursor() {
+    return !gazePreferenceActive || Date.now() - lastGazeSampleTime > GAZE_STALE_MS;
+}
+
+function getSmoothedGazePoint(point) {
+    if (!smoothedGazePoint) {
+        smoothedGazePoint = { x: point.x, y: point.y };
+        return smoothedGazePoint;
+    }
+
+    let dx = point.x - smoothedGazePoint.x;
+    let dy = point.y - smoothedGazePoint.y;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < GAZE_DEAD_ZONE_PX) {
+        return smoothedGazePoint;
+    }
+
+    smoothedGazePoint.x += dx * GAZE_SMOOTHING;
+    smoothedGazePoint.y += dy * GAZE_SMOOTHING;
+    return smoothedGazePoint;
+}
+
+window.addEventListener("mousemove", function (event) {
+    lastMousePoint.x = event.clientX;
+    lastMousePoint.y = event.clientY;
+    customMouse.style.left = event.clientX + "px";
+    customMouse.style.top = event.clientY + "px";
+    if (activeDepthSectionEl && activeDepthSectionEl.id === "abyss") {
+        scheduleAbyssShyFrame();
+    }
+}, true);
+
+// TEXT TEXT TEXT
+//
+// Depth-text effects — per-depth setup in depth-nav.js (DEPTH_SECTION_CONFIG).
+// CSS blocks: index.css — #midwater, #midnight, #abyss, #hadal.
+//
+// JS effect helpers: midnight/midwater (pointer/gaze) — abyss shyEffects — hadal hue + hover clumps
+
+// Letter class tagging (vowel, consonant, h-style, p/d grow) — scoped per depth section
+function tagDepthSpecialLettersIn(root) {
+    if (!root) return;
+    root.querySelectorAll(".depth-letter").forEach(function (letter) {
+        let ch = letter.textContent.trim();
+        if (/^[A-Z]$/.test(ch)) {
+            letter.classList.add("depth-letter-capital");
+        }
+        if (/^[pivg]$/i.test(ch)) {
+            letter.classList.add("depth-letter-pivg");
+        }
+        if (/^[guvhq]$/i.test(ch)) {
+            letter.classList.add("depth-letter-gh");
+            letter.classList.remove("depth-letter-h");
+            return;
+        }
+        if (/^[tlywc]$/i.test(ch)) {
+            letter.classList.add("depth-letter-h");
+        }
+        if (/^[aeiou]$/i.test(ch)) {
+            letter.classList.add("depth-letter-vowel");
+            return;
+        }
+        if (
+            !letter.classList.contains("depth-letter-h") &&
+            !letter.classList.contains("depth-letter-gh")
+        ) {
+            letter.classList.add("depth-letter-consonant");
+        }
+        if (/^[pd]$/i.test(ch)) {
+            letter.classList.add("depth-letter-pbdq");
+        }
+    });
+}
+
+function isPointerEntering(el, related) {
+    return el && (!related || !el.contains(related));
+}
+
+
+function appendDepthLetter(parent, ch) {
+    let letter = document.createElement("span");
+    letter.className = "depth-letter";
+    letter.textContent = ch;
+    parent.appendChild(letter);
+}
+
+function appendDepthWord(container, word) {
+    let wordEl = document.createElement("span");
+    wordEl.className = "depth-word";
+    for (let i = 0; i < word.length; i++) {
+        appendDepthLetter(wordEl, word[i]);
+    }
+    container.appendChild(wordEl);
+}
+
+function appendDepthNumber(container, num) {
+    let numberEl = document.createElement("span");
+    numberEl.className = "depth-number";
+    for (let i = 0; i < num.length; i++) {
+        let digit = document.createElement("span");
+        digit.className = "depth-digit";
+        appendDepthLetter(digit, num[i]);
+        numberEl.appendChild(digit);
+    }
+    container.appendChild(numberEl);
+}
+
+function appendDepthSpecial(container, ch) {
+    let special = document.createElement("span");
+    special.className = "depth-special";
+    special.textContent = ch;
+    container.appendChild(special);
+}
+
+function appendDepthSpace(container) {
+    let space = document.createElement("span");
+    space.className = "depth-space";
+    space.innerHTML = "&nbsp;";
+    container.appendChild(space);
+}
+
+function buildDepthTextMarkupInto(container, text) {
+    container.replaceChildren();
+    let re =
+        /(\s+)|(\d+(?:\.\d+)?)|([A-Za-z][A-Za-z0-9.'\u2212-]*)|([^\s\w])/gu;
+    let match;
+    while ((match = re.exec(text)) !== null) {
+        if (match[1]) {
+            if (match[1].includes("\n")) {
+                container.appendChild(document.createElement("br"));
+            } else {
+                appendDepthSpace(container);
+            }
+            continue;
+        }
+        if (match[2]) {
+            appendDepthNumber(container, match[2]);
+            continue;
+        }
+        if (match[3]) {
+            appendDepthWord(container, match[3]);
+            continue;
+        }
+        if (match[4]) {
+            for (let i = 0; i < match[4].length; i++) {
+                appendDepthSpecial(container, match[4][i]);
+            }
+        }
+    }
+}
+
+function shouldBuildDepthTextMarkup(section) {
+    return depthSectionHasSetup(section, "buildMarkup");
+}
+
+function getOrCreateDepthTextElement(section) {
+    let textEl = section.querySelector(".depth-text");
+    if (textEl) return textEl;
+    let plain = section.textContent.replace(/\s*\n\s*/g, "\n").replace(/[ \t]+/g, " ").trim();
+    section.replaceChildren();
+    textEl = document.createElement("span");
+    textEl.className = "depth-text";
+    textEl.textContent = plain;
+    section.appendChild(textEl);
+    return textEl;
+}
+
+function depthTextHasLetterMarkup(textEl) {
+    return !!textEl.querySelector(".depth-word, .depth-letter, .depth-digit, .depth-special");
+}
+
+function ensureDepthTextMarkup(section) {
+    if (!shouldBuildDepthTextMarkup(section)) return;
+    let textEl = getOrCreateDepthTextElement(section);
+    if (!textEl) return;
+    if (textEl.dataset.depthMarkupBuilt === "true" && depthTextHasLetterMarkup(textEl)) {
+        return;
+    }
+    let plain = textEl.textContent.replace(/\s*\n\s*/g, "\n").replace(/[ \t]+/g, " ").trim();
+    if (!plain) return;
+    buildDepthTextMarkupInto(textEl, plain);
+    textEl.dataset.depthMarkupBuilt = "true";
+}
+
+function prepareAllDepthTextMarkup() {
+    for (let i = 0; i < DEPTH_ORDER.length; i++) {
+        ensureDepthTextMarkup(document.getElementById(DEPTH_ORDER[i]));
+    }
+}
+
+//MIDWATER
+
+const midwaterHighlightTimers = new WeakMap();
+const midwaterDwellTimers = new WeakMap();
+
+function clearMidwaterHighlightTimer(el) {
+    let timer = midwaterHighlightTimers.get(el);
+    if (timer) {
+        clearTimeout(timer);
+        midwaterHighlightTimers.delete(el);
+    }
+}
+
+function getMidwaterWordLetterCount(word) {
+    return word.querySelectorAll(".depth-letter").length;
+}
+
+function isMidwaterWord(word) {
+    return !!(word && word.classList.contains("depth-word"));
+}
+
+function isMidwaterWordActive(word, section) {
+    if (!word || !section) return false;
+    if (word.matches(":hover")) return true;
+    return section._midwaterGazeWord === word;
+}
+
+function isMidwaterCapitalActive(capital, section) {
+    if (!capital || !section || section._wormCapitalLetter !== capital) return false;
+    if (capital.matches(":hover")) return true;
+    return section._midwaterGazeCapital === capital;
+}
+
+function isMidwaterHighlightableWord(word) {
+    if (!isMidwaterWord(word)) return false;
+    let minLetters = getDepthSectionConfig("midwater").effects.highlightMinWordLetters;
+    return getMidwaterWordLetterCount(word) >= minLetters;
+}
+
+const MIDWATER_HIGHLIGHT_TONES = [
+    "highlight-tone-yellow",
+    "highlight-tone-purple",
+    "highlight-tone-blue",
+];
+
+function applyMidwaterHighlightTone(el) {
+    el.classList.remove(...MIDWATER_HIGHLIGHT_TONES);
+    el.classList.add(
+        MIDWATER_HIGHLIGHT_TONES[Math.floor(Math.random() * MIDWATER_HIGHLIGHT_TONES.length)]
+    );
+}
+
+function clearMidwaterHighlightTone(el) {
+    el.classList.remove(...MIDWATER_HIGHLIGHT_TONES);
+}
+
+function holdMidwaterHighlight(el) {
+    if (el.classList.contains("depth-word") && !isMidwaterHighlightableWord(el)) return;
+    clearMidwaterHighlightTimer(el);
+    if (el.classList.contains("depth-word")) {
+        applyMidwaterHighlightTone(el);
+    }
+    el.classList.add("highlight-hold");
+}
+
+function releaseMidwaterHighlight(el) {
+    clearMidwaterHighlightTimer(el);
+    let holdMs = getDepthSectionConfig("midwater").effects.highlightHoldMs;
+    let timer = setTimeout(function () {
+        let section = el.closest(".depth-section");
+        if (el.matches(":hover") || (section && section._midwaterGazeHighlightWord === el)) {
+            midwaterHighlightTimers.delete(el);
+            return;
+        }
+        el.classList.remove("highlight-hold");
+        if (el.classList.contains("depth-word")) {
+            el.classList.remove("word-strike");
+            clearMidwaterHighlightTone(el);
+        }
+        midwaterHighlightTimers.delete(el);
+    }, holdMs);
+    midwaterHighlightTimers.set(el, timer);
+}
+
+function getMidwaterHighlightTarget(el, section) {
+    if (!el || !section.contains(el)) return null;
+    let word = el.closest(".depth-word");
+    if (word) return isMidwaterHighlightableWord(word) ? word : null;
+    return null;
+}
+
+function isMidwaterPivgHovered(word, hoveredEl) {
+    if (!word || !hoveredEl || !word.contains(hoveredEl)) return false;
+    let letter = hoveredEl.closest(".depth-letter");
+    return !!(letter && word.contains(letter) && letter.classList.contains("depth-letter-pivg"));
+}
+
+function updateMidwaterWordStrike(word, hoveredEl) {
+    if (!word || !isMidwaterHighlightableWord(word)) return;
+    if (isMidwaterPivgHovered(word, hoveredEl)) {
+        word.classList.add("word-strike");
+    } else {
+        word.classList.remove("word-strike");
+    }
+}
+
+function clearMidwaterWordDwellTimer(word) {
+    let timer = midwaterDwellTimers.get(word);
+    if (timer) {
+        clearTimeout(timer);
+        midwaterDwellTimers.delete(word);
+    }
+}
+
+function scheduleMidwaterWordDwell(word) {
+    if (!isMidwaterWord(word) || word.classList.contains("word-gone")) return;
+    if (word._wordVanishPlaying) return;
+
+    clearMidwaterWordDwellTimer(word);
+    let dwellMs = getDepthSectionConfig("midwater").effects.wordDwellMs;
+
+    let section = word.closest(".depth-section");
+    let timer = setTimeout(function () {
+        midwaterDwellTimers.delete(word);
+        if (!word.closest(".depth-section.active")) return;
+        if (word.classList.contains("word-gone")) return;
+        if (!section || !isMidwaterWordActive(word, section)) return;
+        playMidwaterWordVanish(word);
+    }, dwellMs);
+
+    midwaterDwellTimers.set(word, timer);
+}
+
+function playMidwaterWordVanish(word) {
+    if (!word || word._wordVanishPlaying || word.classList.contains("word-gone")) return;
+
+    word._wordVanishPlaying = true;
+    clearMidwaterWordDwellTimer(word);
+    clearMidwaterHighlightTimer(word);
+    word.classList.remove("highlight-hold", "word-strike");
+    clearMidwaterHighlightTone(word);
+    word.classList.add("word-vanish-play");
+
+    let durationMs = getDepthSectionConfig("midwater").effects.wordVanishDurationMs;
+
+    function finishVanish() {
+        if (word.classList.contains("word-gone")) return;
+        word.classList.remove("word-vanish-play");
+        word.classList.add("word-gone");
+        word._wordVanishPlaying = false;
+    }
+
+    word.addEventListener("animationend", finishVanish, { once: true });
+    setTimeout(finishVanish, durationMs + 50);
+}
+
+function isMidwaterSentenceTerminator(block) {
+    return (
+        block &&
+        block.classList.contains("depth-special") &&
+        /^[.!?]$/.test(block.textContent.trim())
+    );
+}
+
+function getMidwaterTextBlock(el) {
+    if (!el || !el.closest) return null;
+    return el.closest(".depth-word, .depth-number, .depth-special");
+}
+
+function getMidwaterTextBlocks(textEl) {
+    let blocks = [];
+    let child = textEl.firstElementChild;
+    while (child) {
+        if (
+            child.classList.contains("depth-word") ||
+            child.classList.contains("depth-number") ||
+            child.classList.contains("depth-special")
+        ) {
+            blocks.push(child);
+        }
+        child = child.nextElementSibling;
+    }
+    return blocks;
+}
+
+function getMidwaterSentenceBlocks(textEl, anchorBlock) {
+    let blocks = getMidwaterTextBlocks(textEl);
+    let index = blocks.indexOf(anchorBlock);
+    if (index === -1) return [];
+
+    let start = index;
+    while (start > 0 && !isMidwaterSentenceTerminator(blocks[start - 1])) {
+        start--;
+    }
+
+    let end = index;
+    while (end < blocks.length - 1) {
+        end++;
+        if (isMidwaterSentenceTerminator(blocks[end])) break;
+    }
+
+    return blocks.slice(start, end + 1);
+}
+
+function flattenMidwaterSentenceUnits(blocks) {
+    let units = [];
+    for (let i = 0; i < blocks.length; i++) {
+        let block = blocks[i];
+        if (block.classList.contains("depth-word")) {
+            let letters = block.querySelectorAll(".depth-letter");
+            for (let j = 0; j < letters.length; j++) {
+                units.push(letters[j]);
+            }
+        } else if (block.classList.contains("depth-number")) {
+            let digits = block.querySelectorAll(".depth-digit");
+            for (let j = 0; j < digits.length; j++) {
+                units.push(digits[j]);
+            }
+        } else if (block.classList.contains("depth-special")) {
+            units.push(block);
+        }
+    }
+    return units;
+}
+
+function getMidwaterSentenceUnits(textEl, anchorLetter) {
+    let anchorBlock = getMidwaterTextBlock(anchorLetter);
+    if (!anchorBlock || !textEl.contains(anchorBlock)) return [];
+    return flattenMidwaterSentenceUnits(getMidwaterSentenceBlocks(textEl, anchorBlock));
+}
+
+function clearMidwaterWormUnits(units) {
+    for (let i = 0; i < units.length; i++) {
+        units[i].classList.remove("worm-wiggle-play");
+        units[i].style.removeProperty("--worm-delay");
+        units[i].style.removeProperty("--worm-duration");
+    }
+}
+
+function clearMidwaterWorm(section) {
+    if (section._wormWaveTimer) {
+        clearTimeout(section._wormWaveTimer);
+        section._wormWaveTimer = null;
+    }
+    if (section._wormUnits) {
+        clearMidwaterWormUnits(section._wormUnits);
+        section._wormUnits = null;
+    }
+    section._wormCapitalLetter = null;
+}
+
+function playMidwaterWormWave(section, capitalLetter) {
+    let textEl = section.querySelector(".depth-text");
+    if (!textEl || section._wormCapitalLetter !== capitalLetter) return;
+
+    let units = getMidwaterSentenceUnits(textEl, capitalLetter);
+    if (!units.length) return;
+
+    let fx = getDepthSectionConfig("midwater").effects;
+    let staggerMs = fx.wormStaggerMs;
+    let durationMs = fx.wormDurationMs;
+
+    clearMidwaterWormUnits(units);
+    section._wormUnits = units;
+
+    for (let i = 0; i < units.length; i++) {
+        units[i].style.setProperty("--worm-delay", i * staggerMs + "ms");
+        units[i].style.setProperty("--worm-duration", durationMs + "ms");
+        units[i].classList.remove("worm-wiggle-play");
+        void units[i].offsetWidth;
+        units[i].classList.add("worm-wiggle-play");
+    }
+
+    section._wormWaveTimer = setTimeout(function () {
+        section._wormWaveTimer = null;
+        clearMidwaterWormUnits(units);
+        if (isMidwaterCapitalActive(capitalLetter, section)) {
+            playMidwaterWormWave(section, capitalLetter);
+        }
+    }, (units.length - 1) * staggerMs + durationMs + 40);
+}
+
+function startMidwaterWorm(section, capitalLetter) {
+    clearMidwaterWorm(section);
+    section._wormCapitalLetter = capitalLetter;
+    playMidwaterWormWave(section, capitalLetter);
+}
+
+function stopMidwaterWorm(section) {
+    clearMidwaterWorm(section);
+}
+
+function scanMidwaterGazeHits(x, y, section) {
+    let hits = {
+        letter: null,
+        word: null,
+        highlightWord: null,
+        capital: null
+    };
+    let stack = document.elementsFromPoint(x, y);
+    if (!stack) return hits;
+
+    for (let i = 0; i < stack.length; i++) {
+        let el = stack[i];
+        if (!el.classList) continue;
+        if (el.id === "webgazerGazeDot" || el.classList.contains("customMouse")) continue;
+        if (!section.contains(el)) continue;
+
+        if (!hits.letter && el.classList.contains("depth-letter")) {
+            hits.letter = el;
+        }
+        if (!hits.word && el.classList.contains("depth-word")) {
+            hits.word = el;
+        }
+    }
+
+    if (hits.letter && !hits.word) {
+        hits.word = hits.letter.closest(".depth-word");
+    }
+    if (hits.letter && hits.letter.classList.contains("depth-letter-capital")) {
+        hits.capital = hits.letter;
+    }
+    if (hits.word && isMidwaterHighlightableWord(hits.word)) {
+        hits.highlightWord = hits.word;
+    }
+
+    return hits;
+}
+
+function clearMidwaterGazeInteractionState(section) {
+    if (!section) return;
+
+    if (section._midwaterGazeLetter) {
+        section._midwaterGazeLetter.classList.remove("gaze-hover");
+        section._midwaterGazeLetter = null;
+    }
+    if (section._midwaterGazeHighlightWord) {
+        releaseMidwaterHighlight(section._midwaterGazeHighlightWord);
+        section._midwaterGazeHighlightWord = null;
+    }
+    if (section._midwaterGazeWord) {
+        clearMidwaterWordDwellTimer(section._midwaterGazeWord);
+        section._midwaterGazeWord = null;
+    }
+    if (section._midwaterGazeCapital) {
+        section._midwaterGazeCapital = null;
+        if (!section._wormCapitalLetter || !section._wormCapitalLetter.matches(":hover")) {
+            stopMidwaterWorm(section);
+        }
+    }
+}
+
+function applyMidwaterGazeAtPoint(section, x, y) {
+    let hits = scanMidwaterGazeHits(x, y, section);
+
+    if (hits.capital !== section._midwaterGazeCapital) {
+        section._midwaterGazeCapital = hits.capital;
+        if (hits.capital) {
+            startMidwaterWorm(section, hits.capital);
+        } else if (!section._wormCapitalLetter || !section._wormCapitalLetter.matches(":hover")) {
+            stopMidwaterWorm(section);
+        }
+    }
+
+    if (hits.word !== section._midwaterGazeWord) {
+        let prevWord = section._midwaterGazeWord;
+        if (prevWord) {
+            clearMidwaterWordDwellTimer(prevWord);
+        }
+        section._midwaterGazeWord = hits.word;
+        if (hits.word) {
+            scheduleMidwaterWordDwell(hits.word);
+        } else if (prevWord && prevWord.matches(":hover")) {
+            scheduleMidwaterWordDwell(prevWord);
+        }
+    }
+
+    if (hits.highlightWord !== section._midwaterGazeHighlightWord) {
+        if (section._midwaterGazeHighlightWord) {
+            releaseMidwaterHighlight(section._midwaterGazeHighlightWord);
+        }
+        section._midwaterGazeHighlightWord = hits.highlightWord;
+        if (hits.highlightWord) {
+            holdMidwaterHighlight(hits.highlightWord);
+        }
+    }
+    if (hits.highlightWord) {
+        updateMidwaterWordStrike(hits.highlightWord, hits.letter);
+    }
+
+    if (hits.letter !== section._midwaterGazeLetter) {
+        if (section._midwaterGazeLetter) {
+            section._midwaterGazeLetter.classList.remove("gaze-hover");
+        }
+        section._midwaterGazeLetter = hits.letter;
+        if (hits.letter) {
+            hits.letter.classList.add("gaze-hover");
+        }
+    }
+}
+
+function initMidwaterPointerEffects(section) {
+    if (!depthSectionHasSetup(section, "midwaterHover") || section._midwaterPointerEffectsReady) {
+        return;
+    }
+    section._midwaterPointerEffectsReady = true;
+
+    section.addEventListener("mouseover", function (event) {
+        if (!section.classList.contains("active")) return;
+
+        let capitalLetter = event.target.closest(".depth-letter-capital");
+        if (
+            capitalLetter &&
+            section.contains(capitalLetter) &&
+            isPointerEntering(capitalLetter, event.relatedTarget)
+        ) {
+            startMidwaterWorm(section, capitalLetter);
+        }
+
+        let word = event.target.closest(".depth-word");
+        if (word && section.contains(word) && isPointerEntering(word, event.relatedTarget)) {
+            scheduleMidwaterWordDwell(word);
+        }
+
+        let target = getMidwaterHighlightTarget(event.target, section);
+        if (target) {
+            holdMidwaterHighlight(target);
+            updateMidwaterWordStrike(target, event.target);
+        }
+    });
+
+    section.addEventListener("mouseout", function (event) {
+        if (!section.classList.contains("active")) return;
+
+        let capitalLetter = event.target.closest(".depth-letter-capital");
+        if (capitalLetter && section.contains(capitalLetter)) {
+            let related = event.relatedTarget;
+            if (!related || !capitalLetter.contains(related)) {
+                let relatedCapital = related && related.closest
+                    ? related.closest(".depth-letter-capital")
+                    : null;
+                if (
+                    (!relatedCapital || !section.contains(relatedCapital)) &&
+                    section._midwaterGazeCapital !== capitalLetter
+                ) {
+                    stopMidwaterWorm(section);
+                }
+            }
+        }
+
+        let word = event.target.closest(".depth-word");
+        if (word && isMidwaterWord(word) && section.contains(word)) {
+            let related = event.relatedTarget;
+            if (!related || !word.contains(related)) {
+                clearMidwaterWordDwellTimer(word);
+            }
+        }
+
+        let target = getMidwaterHighlightTarget(event.target, section);
+        if (!target) return;
+
+        let related = event.relatedTarget;
+        if (related && target.contains(related)) return;
+
+        let relatedTarget = getMidwaterHighlightTarget(related, section);
+        if (relatedTarget === target) return;
+
+        releaseMidwaterHighlight(target);
+    });
+}
+
+function initDepthSectionPointerEffects(section) {
+    if (!depthSectionHasSetup(section, "pointerEffects") || section._depthPointerEffectsReady) {
+        return;
+    }
+    section._depthPointerEffectsReady = true;
+
+    section.addEventListener("mouseover", function (event) {
+        if (!section.classList.contains("active")) return;
+
+        let ghLetter = event.target.closest(".depth-letter-gh");
+        if (isPointerEntering(ghLetter, event.relatedTarget) && section.contains(ghLetter)) {
+            playGhGiant(ghLetter);
+        }
+
+        let vowelLetter = event.target.closest(".depth-letter-vowel");
+        if (isPointerEntering(vowelLetter, event.relatedTarget) && section.contains(vowelLetter)) {
+            scheduleVowelBlink(vowelLetter);
+        }
+
+        let pbdqLetter = event.target.closest(".depth-letter-pbdq");
+        if (isPointerEntering(pbdqLetter, event.relatedTarget) && section.contains(pbdqLetter)) {
+            schedulePbdqGrow(pbdqLetter);
+        }
+
+        let symbol = event.target.closest(".depth-digit, .depth-special");
+        if (
+            isPointerEntering(symbol, event.relatedTarget) &&
+            section.contains(symbol) &&
+            isSymbolSwimElement(symbol)
+        ) {
+            playSymbolSwim(symbol);
+        }
+
+        let word = event.target.closest(".depth-word");
+        if (isPointerEntering(word, event.relatedTarget) && section.contains(word)) {
+            scheduleWordFlicker(word);
+        }
+    });
+}
+
+function prepareDepthSection(sectionId) {
+    let section = document.getElementById(sectionId);
+    if (!section) return null;
+    ensureDepthTextMarkup(section);
+    if (!section.dataset.depthPrepared) {
+        if (depthSectionHasSetup(section, "tagLetters")) {
+            tagDepthSpecialLettersIn(section);
+        }
+        if (depthSectionHasSetup(section, "midwaterHover")) {
+            initMidwaterPointerEffects(section);
+        }
+        if (depthSectionHasSetup(section, "pointerEffects")) {
+            initDepthSectionPointerEffects(section);
+        }
+        section.dataset.depthPrepared = "true";
+    }
+    if (depthSectionHasSetup(section, "shyEffects")) {
+        initAbyssShyEffects(section);
+    }
+    if (depthSectionHasSetup(section, "hadalHueEffects")) {
+        initHadalHueEffects(section);
+    }
+    if (depthSectionHasSetup(section, "hadalClumpEffects")) {
+        initHadalClumpEffects(section);
+    }
+    return section;
+}
+
+// --- Hadal: each letter shifts blue ↔ orange on recolor (cool HSL, warm RGB; no filters) ---
+const HADAL_RECOLOR_MIN_MS = 4500;
+const HADAL_RECOLOR_MAX_MS = 12000;
+const HADAL_COOL_HUE_MIN = 200;
+const HADAL_COOL_HUE_MAX = 246;
+const HADAL_COOL_HUE_JITTER = 22;
+const HADAL_COOL_SAT_MIN = 28;
+const HADAL_COOL_SAT_MAX = 58;
+const HADAL_COOL_LIGHT_MIN = 28;
+const HADAL_COOL_LIGHT_MAX = 46;
+const HADAL_WARM_R_MIN = 228;
+const HADAL_WARM_R_MAX = 255;
+const HADAL_WARM_G_MIN = 68;
+const HADAL_WARM_G_MAX = 172;
+const HADAL_WARM_B_MIN = 0;
+const HADAL_WARM_B_MAX = 42;
+const HADAL_WARM_CHANCE = 0.22;
+
+function clampHadalHue(hue, hueMin, hueMax) {
+    if (hue < hueMin) return hueMin;
+    if (hue > hueMax) return hueMax;
+    return hue;
+}
+
+function randomHadalCoolLightness() {
+    let t = Math.random() * Math.random();
+    return HADAL_COOL_LIGHT_MIN + t * (HADAL_COOL_LIGHT_MAX - HADAL_COOL_LIGHT_MIN);
+}
+
+function randomHadalWarmRgb() {
+    let r =
+        HADAL_WARM_R_MIN + (Math.random() * (HADAL_WARM_R_MAX - HADAL_WARM_R_MIN) | 0);
+    let g =
+        HADAL_WARM_G_MIN + (Math.random() * (HADAL_WARM_G_MAX - HADAL_WARM_G_MIN) | 0);
+    let b =
+        HADAL_WARM_B_MIN + (Math.random() * (HADAL_WARM_B_MAX - HADAL_WARM_B_MIN) | 0);
+    return "rgb(" + r + "," + g + "," + b + ")";
+}
+
+function randomHadalColor(section) {
+    let warm = Math.random() < HADAL_WARM_CHANCE;
+
+    if (warm) {
+        return randomHadalWarmRgb();
+    }
+
+    let hue;
+    let center =
+        section && section._hadalHueCenter != null
+            ? section._hadalHueCenter
+            : (HADAL_COOL_HUE_MIN + HADAL_COOL_HUE_MAX) * 0.5;
+    hue = clampHadalHue(
+        center + (Math.random() * 2 - 1) * HADAL_COOL_HUE_JITTER,
+        HADAL_COOL_HUE_MIN,
+        HADAL_COOL_HUE_MAX
+    );
+    let sat = HADAL_COOL_SAT_MIN + Math.random() * (HADAL_COOL_SAT_MAX - HADAL_COOL_SAT_MIN);
+    let light = randomHadalCoolLightness();
+    return (
+        "hsl(" +
+        hue.toFixed(1) +
+        "," +
+        sat.toFixed(1) +
+        "%," +
+        light.toFixed(1) +
+        "%)"
+    );
+}
+
+function getHadalRecolorDelayMs() {
+    return HADAL_RECOLOR_MIN_MS + Math.random() * (HADAL_RECOLOR_MAX_MS - HADAL_RECOLOR_MIN_MS);
+}
+
+function clearHadalHueLetter(el) {
+    if (!el) return;
+    if (el._hadalHueTimer) {
+        clearTimeout(el._hadalHueTimer);
+        el._hadalHueTimer = null;
+    }
+}
+
+function scheduleHadalLetterRecolor(el) {
+    clearHadalHueLetter(el);
+    let delayMs = getHadalRecolorDelayMs();
+    el._hadalHueTimer = window.setTimeout(function () {
+        el._hadalHueTimer = null;
+        if (!el.isConnected || !el.classList.contains("hadal-hue")) return;
+        el.style.color = randomHadalColor(el._hadalHueSection);
+        scheduleHadalLetterRecolor(el);
+    }, delayMs);
+}
+
+function startHadalLetterHue(el, section) {
+    if (!el || el.classList.contains("hadal-hue")) return;
+    el._hadalHueSection = section;
+    el.classList.add("hadal-hue");
+    el.style.color = randomHadalColor(section);
+    scheduleHadalLetterRecolor(el);
+}
+
+function clearHadalHueEffects(section) {
+    if (!section || !section._hadalHueLetters) return;
+    section._hadalHueLetters.forEach(clearHadalHueLetter);
+}
+
+function resumeHadalHueEffects(section) {
+    if (!section || !section._hadalHueLetters) return;
+    section._hadalHueLetters.forEach(function (el) {
+        if (el.classList.contains("hadal-hue") && !el._hadalHueTimer) {
+            scheduleHadalLetterRecolor(el);
+        }
+    });
+}
+
+function initHadalHueEffects(section) {
+    if (!section || section._hadalHueReady) return;
+    section._hadalHueReady = true;
+    section._hadalHueCenter =
+        HADAL_COOL_HUE_MIN + Math.random() * (HADAL_COOL_HUE_MAX - HADAL_COOL_HUE_MIN);
+    section._hadalHueLetters = Array.from(section.querySelectorAll(".depth-letter"));
+    section._hadalHueLetters.forEach(function (el) {
+        startHadalLetterHue(el, section);
+    });
+}
+
+// --- Hadal: hover extracts 4–5 words into permanent overlapping floats ---
+const HADAL_CLUMP_WORD_MIN = 4;
+const HADAL_CLUMP_WORD_MAX = 5;
+
+function getHadalClumpWords(section) {
+    return Array.from(
+        section.querySelectorAll(".depth-text .depth-word:not(.hadal-word-gone)")
+    );
+}
+
+function getHadalClumpWordSlice(section, anchorLetter) {
+    let words = getHadalClumpWords(section);
+    let word = anchorLetter.closest(".depth-word");
+    if (!word || words.indexOf(word) < 0) {
+        return { words: [], letters: [] };
+    }
+
+    let idx = words.indexOf(word);
+    let count =
+        HADAL_CLUMP_WORD_MIN +
+        (Math.random() * (HADAL_CLUMP_WORD_MAX - HADAL_CLUMP_WORD_MIN + 1) | 0);
+    let start = Math.max(0, idx - Math.floor(count * 0.45));
+    let end = Math.min(words.length, start + count);
+    start = Math.max(0, end - count);
+    let slice = words.slice(start, end);
+    let letters = [];
+    for (let i = 0; i < slice.length; i++) {
+        let wordLetters = slice[i].querySelectorAll(".depth-letter");
+        for (let j = 0; j < wordLetters.length; j++) {
+            if (!wordLetters[j].classList.contains("hadal-clump-member")) {
+                letters.push(wordLetters[j]);
+            }
+        }
+    }
+    return { words: slice, letters: letters };
+}
+
+function extractHadalLetter(letter) {
+    let word = letter.closest(".depth-word");
+    if (letter.parentNode) {
+        letter.parentNode.removeChild(letter);
+    }
+    if (word && !word.querySelector(".depth-letter")) {
+        word.classList.add("hadal-word-gone");
+    }
+}
+
+function ensureHadalClumpField(section) {
+    if (!section._hadalClumpField) {
+        let field = document.createElement("div");
+        field.className = "hadal-clump-field";
+        field.setAttribute("aria-hidden", "true");
+        section.appendChild(field);
+        section._hadalClumpField = field;
+    }
+    return section._hadalClumpField;
+}
+
+function pauseHadalClumpFloats(section) {
+    if (!section) return;
+    section.classList.add("hadal-clumps-paused");
+}
+
+function resumeHadalClumpFloats(section) {
+    if (!section) return;
+    section.classList.remove("hadal-clumps-paused");
+}
+
+function pickHadalClumpStyle(letterCount) {
+    if (letterCount >= 28) {
+        return Math.random() < 0.55 ? "squiggle" : "jelly";
+    }
+    if (letterCount >= 16) {
+        return Math.random() < 0.4 ? "squiggle" : "jelly";
+    }
+    return "jelly";
+}
+
+function configureHadalClumpFloatMotion(float, type) {
+    let jelly = type === "jelly";
+    let duration = jelly ? 38 + Math.random() * 52 : 24 + Math.random() * 38;
+    let dx = (jelly ? 8 : 14) + Math.random() * (jelly ? 28 : 34);
+    let dy = (jelly ? 6 : 12) + Math.random() * (jelly ? 22 : 30);
+    float.style.setProperty("--hadal-dx", ((Math.random() < 0.5 ? -1 : 1) * dx).toFixed(1) + "vw");
+    float.style.setProperty("--hadal-dy", ((Math.random() < 0.5 ? -1 : 1) * dy).toFixed(1) + "vh");
+    float.style.setProperty("--hadal-drift-duration", duration.toFixed(1) + "s");
+    float.style.setProperty(
+        "--hadal-drift-delay",
+        "-" + (Math.random() * duration).toFixed(1) + "s"
+    );
+}
+
+function configureHadalClumpWiggle(body) {
+    let wiggleDur = 1.6 + Math.random() * 2.4;
+    body.style.setProperty("--hadal-wiggle-duration", wiggleDur.toFixed(2) + "s");
+    body.style.setProperty(
+        "--hadal-wiggle-delay",
+        "-" + (Math.random() * wiggleDur).toFixed(2) + "s"
+    );
+    body.style.setProperty(
+        "--hadal-wx",
+        ((Math.random() < 0.5 ? -1 : 1) * (4 + Math.random() * 10)).toFixed(1) + "px"
+    );
+    body.style.setProperty(
+        "--hadal-wy",
+        ((Math.random() < 0.5 ? -1 : 1) * (4 + Math.random() * 10)).toFixed(1) + "px"
+    );
+    body.style.setProperty(
+        "--hadal-wr",
+        ((Math.random() < 0.5 ? -1 : 1) * (3 + Math.random() * 9)).toFixed(1) + "deg"
+    );
+}
+
+function positionHadalClumpFloat(section, float, anchorLetter) {
+    let sectionRect = section.getBoundingClientRect();
+    let anchorRect = anchorLetter.getBoundingClientRect();
+    let jitterX = (Math.random() - 0.5) * 56;
+    let jitterY = (Math.random() - 0.5) * 44;
+    float.style.left =
+        anchorRect.left - sectionRect.left + anchorRect.width * 0.5 + jitterX + "px";
+    float.style.top =
+        anchorRect.top - sectionRect.top + anchorRect.height * 0.5 + jitterY + "px";
+}
+
+function isHadalVowelLetter(letter) {
+    return (
+        letter.classList.contains("depth-letter-vowel") ||
+        /^[aeiou]$/i.test(letter.textContent.trim())
+    );
+}
+
+const HADAL_RING_RADIUS_MIN_PX = 14;
+const HADAL_RING_RADIUS_MAX_PX = 28;
+const HADAL_VOWEL_CHAIN_STEP_PX = 11;
+
+function setHadalClumpLetterPos(el, xPx, yPx, rotDeg) {
+    el.style.position = "absolute";
+    el.style.left = "50%";
+    el.style.top = "50%";
+    el.style.margin = "0";
+    el.style.setProperty("--hadal-ring-x", xPx.toFixed(1) + "px");
+    el.style.setProperty("--hadal-ring-y", yPx.toFixed(1) + "px");
+    el.style.setProperty("--hadal-ring-rot", rotDeg.toFixed(1) + "deg");
+    el.style.transform =
+        "translate(calc(-50% + var(--hadal-ring-x)), calc(-50% + var(--hadal-ring-y))) rotate(var(--hadal-ring-rot))";
+}
+
+function layoutHadalClumpLetters(body, letters) {
+    let vowels = [];
+    let consonants = [];
+    for (let i = 0; i < letters.length; i++) {
+        if (isHadalVowelLetter(letters[i])) {
+            vowels.push(letters[i]);
+        } else {
+            consonants.push(letters[i]);
+        }
+    }
+
+    body.classList.add("hadal-clump-ring");
+    let maxExtentPx = HADAL_RING_RADIUS_MAX_PX + 14;
+
+    for (let i = 0; i < consonants.length; i++) {
+        let el = consonants[i];
+        let angle = Math.random() * Math.PI * 2;
+        let distPx =
+            HADAL_RING_RADIUS_MIN_PX +
+            Math.random() * (HADAL_RING_RADIUS_MAX_PX - HADAL_RING_RADIUS_MIN_PX);
+        let x = Math.cos(angle) * distPx + (Math.random() - 0.5) * 8;
+        let y = Math.sin(angle) * distPx + (Math.random() - 0.5) * 8;
+        let rotDeg = (Math.random() - 0.5) * 48;
+
+        el.style.zIndex = String(8 + (Math.random() * 14 | 0));
+        setHadalClumpLetterPos(el, x, y, rotDeg);
+        maxExtentPx = Math.max(maxExtentPx, Math.sqrt(x * x + y * y) + 14);
+    }
+
+    if (vowels.length > 0) {
+        body.classList.add("hadal-clump-has-vowel-wave");
+        let chainAngle = Math.random() * Math.PI * 2;
+        let rimPx =
+            HADAL_RING_RADIUS_MIN_PX +
+            Math.random() * (HADAL_RING_RADIUS_MAX_PX - HADAL_RING_RADIUS_MIN_PX);
+        let anchorX = Math.cos(chainAngle) * rimPx;
+        let anchorY = Math.sin(chainAngle) * rimPx;
+        let alongX = Math.cos(chainAngle);
+        let alongY = Math.sin(chainAngle);
+        let perpX = -alongY;
+        let perpY = alongX;
+        let along = 0;
+
+        for (let vi = 0; vi < vowels.length; vi++) {
+            let el = vowels[vi];
+            let stepPx = HADAL_VOWEL_CHAIN_STEP_PX + (Math.random() - 0.3) * 9;
+            along += stepPx;
+            let waveAlong = Math.sin(vi * 0.58) * 5 + (Math.random() - 0.5) * 6;
+            let wavePerp = Math.sin(vi * 0.41) * 8 + (Math.random() - 0.5) * 10;
+            let x = anchorX + alongX * (along + waveAlong) + perpX * wavePerp;
+            let y = anchorY + alongY * (along + waveAlong) + perpY * wavePerp;
+            let rotDeg = (chainAngle * 180) / Math.PI + (Math.random() - 0.5) * 22;
+
+            el.classList.add("hadal-clump-vowel-chain");
+            el.classList.add("hadal-clump-vowel-wave");
+            if (vi < vowels.length - 1) {
+                el.classList.add("hadal-clump-vowel-linked");
+            }
+            el.style.setProperty("--hadal-vowel-phase", String(vi + Math.random() * 0.6));
+            el.style.zIndex = String(20 + (Math.random() * 12 | 0));
+            setHadalClumpLetterPos(el, x, y, rotDeg);
+            maxExtentPx = Math.max(maxExtentPx, Math.sqrt(x * x + y * y) + 14);
+        }
+    }
+
+    let boxPx = maxExtentPx * 2 + 32;
+    body.style.setProperty("--hadal-ring-size-px", boxPx.toFixed(0) + "px");
+}
+
+function activateHadalClump(section, anchorLetter) {
+    if (!anchorLetter.closest(".depth-text")) return;
+
+    let slice = getHadalClumpWordSlice(section, anchorLetter);
+    let letters = slice.letters;
+    if (letters.length < 4) return;
+
+    let style = pickHadalClumpStyle(letters.length);
+    let float = document.createElement("div");
+    float.className = "hadal-clump-float hadal-clump-float--" + style;
+    let body = document.createElement("div");
+    body.className = "hadal-clump-body";
+    configureHadalClumpFloatMotion(float, style);
+    configureHadalClumpWiggle(body);
+    positionHadalClumpFloat(section, float, anchorLetter);
+
+    let field = ensureHadalClumpField(section);
+    float.appendChild(body);
+    field.appendChild(float);
+
+    for (let i = 0; i < letters.length; i++) {
+        let el = letters[i];
+        extractHadalLetter(el);
+        el.classList.add("hadal-clump-member", "hadal-clump-" + style);
+        body.appendChild(el);
+    }
+    layoutHadalClumpLetters(body, letters);
+}
+
+function initHadalClumpEffects(section) {
+    if (!section || section._hadalClumpReady) return;
+    if (!getHadalClumpWords(section).length) return;
+
+    section._hadalClumpReady = true;
+
+    section.addEventListener("mouseover", function (event) {
+        if (!section.classList.contains("active")) return;
+        let letter = event.target.closest(".depth-text .depth-letter");
+        if (!letter || letter.classList.contains("hadal-clump-member")) return;
+        activateHadalClump(section, letter);
+    });
+}
+
+// --- EFFECT: g / v / u / h / q — instant giant flash on hover / gaze ---
+const GH_GIANT_DURATION_MS = 1000;
+
+function playGhGiant(letter) {
+    if (!letter || !letter.classList.contains("depth-letter-gh")) return;
+    if (letter._ghGiantPlaying) return;
+
+    letter._ghGiantPlaying = true;
+    letter.classList.remove("gh-giant-play");
+    void letter.offsetWidth;
+    letter.classList.add("gh-giant-play");
+
+    function finishGhGiant() {
+        letter.classList.remove("gh-giant-play");
+        letter._ghGiantPlaying = false;
+    }
+
+    letter.addEventListener("animationend", finishGhGiant, { once: true });
+    setTimeout(finishGhGiant, GH_GIANT_DURATION_MS + 50);
+}
+
+// --- EFFECT: word hover — random staggered letter flicker (1–5s delay) ---
+const WORD_FLICKER_DELAY_MIN_MS = 1000;
+const WORD_FLICKER_DELAY_MAX_MS = 5000;
+const WORD_FLICKER_CHANCE = 0.25;
+const WORD_FLICKER_LETTER_MS = 1200;
+const WORD_FLICKER_STAGGER_MS = 400;
+
+function randomWordFlickerDelay() {
+    return (
+        WORD_FLICKER_DELAY_MIN_MS +
+        Math.random() * (WORD_FLICKER_DELAY_MAX_MS - WORD_FLICKER_DELAY_MIN_MS)
+    );
+}
+
+function playWordFlicker(word) {
+    if (!word || word._wordFlickerPlaying) return;
+    word._wordFlickerPlaying = true;
+
+    let letters = word.querySelectorAll(".depth-letter");
+    let totalDuration =
+        (letters.length - 1) * WORD_FLICKER_STAGGER_MS + WORD_FLICKER_LETTER_MS;
+
+    letters.forEach(function (letter, index) {
+        letter.style.setProperty("--word-flicker-delay", index * WORD_FLICKER_STAGGER_MS + "ms");
+        letter.style.setProperty("--word-flicker-duration", WORD_FLICKER_LETTER_MS + "ms");
+        letter.classList.remove("word-flicker-play");
+        void letter.offsetWidth;
+        letter.classList.add("word-flicker-play");
+    });
+
+    setTimeout(function () {
+        letters.forEach(function (letter) {
+            letter.classList.remove("word-flicker-play");
+            letter.style.removeProperty("--word-flicker-delay");
+            letter.style.removeProperty("--word-flicker-duration");
+        });
+        word._wordFlickerPlaying = false;
+    }, totalDuration + 50);
+}
+
+function scheduleWordFlicker(word) {
+    if (!word || !word.classList.contains("depth-word")) return;
+    if (!word.closest(".depth-section.active")) return;
+
+    if (word._wordFlickerTimer) {
+        clearTimeout(word._wordFlickerTimer);
+    }
+
+    word._wordFlickerTimer = setTimeout(function () {
+        word._wordFlickerTimer = null;
+        if (!word.closest(".depth-section.active")) return;
+        if (Math.random() < getDepthEffects().wordFlickerChance) {
+            playWordFlicker(word);
+        }
+    }, randomWordFlickerDelay());
+}
+
+// --- EFFECT: vowel delayed blink (1s wait, then orange ×2) ---
+const VOWEL_BLINK_DELAY_MS = 1000;
+const VOWEL_BLINK_DURATION_MS = 800;
+
+function scheduleVowelBlink(letter) {
+    if (!letter || !letter.classList.contains("depth-letter-vowel")) return;
+
+    if (letter._vowelBlinkTimer) {
+        clearTimeout(letter._vowelBlinkTimer);
+    }
+
+    letter._vowelBlinkTimer = setTimeout(function () {
+        letter._vowelBlinkTimer = null;
+        letter.classList.remove("vowel-blink-play");
+        void letter.offsetWidth;
+        letter.classList.add("vowel-blink-play");
+
+        function finishBlink() {
+            if (letter._vowelBlinkAnimDone) return;
+            letter._vowelBlinkAnimDone = true;
+            letter.classList.remove("vowel-blink-play");
+            letter.removeEventListener("animationend", finishBlink);
+        }
+
+        letter._vowelBlinkAnimDone = false;
+        letter.addEventListener("animationend", finishBlink);
+        setTimeout(finishBlink, VOWEL_BLINK_DURATION_MS + 50);
+    }, getDepthEffects().vowelBlinkDelayMs);
+}
+
+// --- EFFECT: p / d delayed grow (2s wait, hovered letter only) ---
+const PBQD_GROW_DELAY_MS = 2000;
+const PBQD_GROW_DURATION_MS = 5500;
+
+function randomPbdqDrift() {
+    let angle = Math.random() * Math.PI * 2;
+    let distance = 36 + Math.random() * 72;
+    return {
+        x: Math.cos(angle) * distance,
+        y: Math.sin(angle) * distance
+    };
+}
+
+function isPbdqGrowBusy(letter) {
+    return !!(letter._pbdqGrowPlaying || letter._pbdqGrowTimer);
+}
+
+function playPbdqGrow(letter) {
+    if (!letter || !letter.classList.contains("depth-letter-pbdq")) return;
+    if (letter._pbdqGrowPlaying) return;
+    letter._pbdqGrowPlaying = true;
+
+    let drift = randomPbdqDrift();
+    letter.style.setProperty("--pbdq-drift-x", drift.x.toFixed(1) + "px");
+    letter.style.setProperty("--pbdq-drift-y", drift.y.toFixed(1) + "px");
+    letter.classList.remove("pbdq-grow-play");
+    void letter.offsetWidth;
+    letter.classList.add("pbdq-grow-play");
+
+    setTimeout(function () {
+        letter.classList.remove("pbdq-grow-play");
+        letter.style.removeProperty("--pbdq-drift-x");
+        letter.style.removeProperty("--pbdq-drift-y");
+        letter._pbdqGrowPlaying = false;
+    }, getDepthEffects().pbdqGrowDurationMs + 50);
+}
+
+function schedulePbdqGrow(letter) {
+    if (!letter || !letter.classList.contains("depth-letter-pbdq")) return;
+    if (!letter.closest(".depth-section.active") || isPbdqGrowBusy(letter)) return;
+
+    letter._pbdqGrowTimer = setTimeout(function () {
+        letter._pbdqGrowTimer = null;
+        if (!letter.closest(".depth-section.active")) return;
+        playPbdqGrow(letter);
+    }, getDepthEffects().pbdqGrowDelayMs);
+}
+
+// --- EFFECT: digit / punctuation swim (color cycle + wiggle off-screen) ---
+const SYMBOL_SWIM_DURATION_MS = 6500;
+
+function isSymbolSwimElement(el) {
+    return (
+        el &&
+        el.classList &&
+        (el.classList.contains("depth-digit") || el.classList.contains("depth-special"))
+    );
+}
+
+function randomSymbolSwimVector() {
+    let angle = Math.random() * Math.PI * 2;
+    let distance = Math.hypot(window.innerWidth, window.innerHeight) * 0.72;
+    return {
+        x: Math.cos(angle) * distance,
+        y: Math.sin(angle) * distance
+    };
+}
+
+function playSymbolSwim(el) {
+    if (!isSymbolSwimElement(el) || el.classList.contains("symbol-swim-play")) return;
+
+    let swim = randomSymbolSwimVector();
+    el.style.setProperty("--symbol-swim-x", swim.x.toFixed(1) + "px");
+    el.style.setProperty("--symbol-swim-y", swim.y.toFixed(1) + "px");
+    el.classList.remove("symbol-swim-play");
+    void el.offsetWidth;
+    el.classList.add("symbol-swim-play");
+
+    function finishSwim() {
+        if (el._symbolSwimDone) return;
+        el._symbolSwimDone = true;
+        el.classList.remove("symbol-swim-play");
+        el.style.removeProperty("--symbol-swim-x");
+        el.style.removeProperty("--symbol-swim-y");
+        el.removeEventListener("animationend", finishSwim);
+    }
+
+    el._symbolSwimDone = false;
+    el.addEventListener("animationend", finishSwim);
+    setTimeout(finishSwim, getDepthEffects().symbolSwimDurationMs + 50);
+}
+
+// --- Abyss: shy characters flee when gaze or trackpad/mouse is nearby ---
+const ABYSS_SHY_MAX_FPS = 24;
+let abyssShyRafId = 0;
+let abyssShyLastFrameMs = 0;
+let abyssStillOrigin = null;
+let abyssStillSinceMs = 0;
+let abyssStillReveal = 0;
+let abyssStillRevealBase = 0;
+let abyssStillRampActive = false;
+
+function applyAbyssShyEffectVars(depthId) {
+    let effects = getDepthSectionConfig(depthId).effects;
+    if (!effects) return;
+    document.documentElement.style.setProperty(
+        "--abyss-shy-flee-duration",
+        (effects.shyFleeDurationMs / 1000) + "s"
+    );
+}
+
+function getAbyssStillEffects() {
+    return getDepthSectionConfig("abyss").effects || {};
+}
+
+function getAbyssActivePointerPoint() {
+    if (lastGazePoint && Date.now() - lastGazeSampleTime <= GAZE_STALE_MS) {
+        return { x: lastGazePoint.x, y: lastGazePoint.y };
+    }
+    return { x: lastMousePoint.x, y: lastMousePoint.y };
+}
+
+function clearAbyssStillnessState(section) {
+    abyssStillOrigin = null;
+    abyssStillSinceMs = 0;
+    abyssStillReveal = 0;
+    abyssStillRevealBase = 0;
+    abyssStillRampActive = false;
+    if (section) applyAbyssStillReveal(section, 0);
+}
+
+function abyssStillMixColor(mix, effects) {
+    let minLight = effects.shyStillMinLight != null ? effects.shyStillMinLight : 0.04;
+    let maxLight = effects.shyStillMaxLight != null ? effects.shyStillMaxLight : 0.12;
+    let t = minLight + (maxLight - minLight) * Math.max(0, Math.min(1, mix));
+
+    let dark = effects.shyStillColorDark || [2, 0, 30];
+    let light = effects.shyStillColorLight || [175, 184, 218];
+    let r = Math.round(dark[0] + (light[0] - dark[0]) * t);
+    let g = Math.round(dark[1] + (light[1] - dark[1]) * t);
+    let b = Math.round(dark[2] + (light[2] - dark[2]) * t);
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
+function applyAbyssStillReveal(section, reveal) {
+    let effects = getAbyssStillEffects();
+    let clamped = Math.max(0, Math.min(1, reveal));
+    if (Math.abs(clamped - abyssStillReveal) < 0.0005) return;
+
+    abyssStillReveal = clamped;
+    section.style.setProperty("--abyss-still-color", abyssStillMixColor(clamped, effects));
+}
+
+function startAbyssShyHue(el) {
+    if (!el || el.classList.contains("abyss-shy-hue")) return;
+    if (el.classList.contains("abyss-shy-gone")) return;
+
+    let startDeg = Math.floor(Math.random() * 360);
+    let sweepDeg = 90 + Math.floor(Math.random() * 270);
+    let durationSec = 1.1 + Math.random() * 4.4;
+    let phaseSec = Math.random() * durationSec;
+
+    el.style.setProperty("--abyss-shy-hue-start", startDeg + "deg");
+    el.style.setProperty("--abyss-shy-hue-end", startDeg + sweepDeg + "deg");
+    el.style.setProperty("--abyss-shy-hue-duration", durationSec.toFixed(2) + "s");
+    el.style.setProperty("--abyss-shy-hue-delay", "-" + phaseSec.toFixed(2) + "s");
+    el.style.setProperty("--abyss-shy-hue-saturate", (2.4 + Math.random() * 1.6).toFixed(2));
+    el.style.setProperty("--abyss-shy-hue-brightness", (2 + Math.random() * 1.2).toFixed(2));
+    el.style.setProperty(
+        "--abyss-shy-hue-direction",
+        Math.random() < 0.5 ? "reverse" : "normal"
+    );
+    el.classList.add("abyss-shy-hue");
+    if (el.classList.contains("abyss-shy-flee")) {
+        void el.offsetWidth;
+    }
+}
+
+function updateAbyssStillness(section, now) {
+    let effects = getAbyssStillEffects();
+    let threshold = effects.shyStillThresholdPx != null ? effects.shyStillThresholdPx : 40;
+    let startMs = effects.shyStillStartMs != null ? effects.shyStillStartMs : 1000;
+    let rampMs = effects.shyStillRampMs != null ? effects.shyStillRampMs : 8000;
+
+    let point = getAbyssActivePointerPoint();
+
+    if (!abyssStillOrigin) {
+        abyssStillOrigin = { x: point.x, y: point.y };
+        abyssStillSinceMs = now;
+        abyssStillRampActive = false;
+        applyAbyssStillReveal(section, 0);
+        return;
+    }
+
+    let movedFromOrigin = Math.hypot(
+        point.x - abyssStillOrigin.x,
+        point.y - abyssStillOrigin.y
+    );
+
+    if (movedFromOrigin > threshold) {
+        abyssStillOrigin = { x: point.x, y: point.y };
+        abyssStillSinceMs = now;
+        abyssStillRampActive = false;
+        applyAbyssStillReveal(section, 0);
+        return;
+    }
+
+    let stillMs = now - abyssStillSinceMs;
+    if (stillMs < startMs) {
+        return;
+    }
+
+    if (!abyssStillRampActive) {
+        abyssStillRevealBase = abyssStillReveal;
+        abyssStillRampActive = true;
+    }
+
+    let rampProgress = Math.min(1, (stillMs - startMs) / rampMs);
+    let reveal = abyssStillRevealBase + (1 - abyssStillRevealBase) * rampProgress;
+    applyAbyssStillReveal(section, reveal);
+}
+
+function collectAbyssShyElements(section) {
+    return section.querySelectorAll(".depth-letter, .depth-special");
+}
+
+function tagAbyssShyElements(section) {
+    collectAbyssShyElements(section).forEach(function (el) {
+        el.classList.add("abyss-shy");
+    });
+}
+
+function refreshAbyssShyCache(section) {
+    section._abyssShyCache = Array.from(
+        section.querySelectorAll(".depth-letter.abyss-shy, .depth-special.abyss-shy")
+    );
+}
+
+function invalidateAbyssShyLayout(el) {
+    if (el) {
+        el._abyssCx = null;
+        el._abyssCy = null;
+    }
+}
+
+function initAbyssShyEffects(section) {
+    if (!section) return;
+    tagAbyssShyElements(section);
+    refreshAbyssShyCache(section);
+}
+
+function getAbyssProximityPoints() {
+    let points = [{ x: lastMousePoint.x, y: lastMousePoint.y }];
+    if (lastGazePoint && Date.now() - lastGazeSampleTime <= GAZE_STALE_MS) {
+        points.push({ x: lastGazePoint.x, y: lastGazePoint.y });
+    }
+    return points;
+}
+
+function distancePointToRect(px, py, rect) {
+    let cx = rect.left + rect.width * 0.5;
+    let cy = rect.top + rect.height * 0.5;
+    return Math.hypot(px - cx, py - cy);
+}
+
+function minDistanceToPoints(points, rect) {
+    let min = Infinity;
+    for (let i = 0; i < points.length; i++) {
+        let d = distancePointToRect(points[i].x, points[i].y, rect);
+        if (d < min) min = d;
+    }
+    return min;
+}
+
+function finishAbyssShyFlee(el) {
+    el.classList.add("abyss-shy-gone");
+    invalidateAbyssShyLayout(el);
+}
+
+function getAbyssShyChar(el) {
+    let ch = el.textContent.trim();
+    if (!ch) return "";
+    if (ch.length === 1 && /[a-z]/i.test(ch)) return ch.toLowerCase();
+    return ch;
+}
+
+function triggerAbyssShyFlee(el, nearX, nearY, opts) {
+    opts = opts || {};
+    if (!el.classList.contains("abyss-shy")) return;
+    if (el.classList.contains("abyss-shy-flee") || el.classList.contains("abyss-shy-gone")) {
+        return;
+    }
+
+    let rect = el.getBoundingClientRect();
+    let cx = rect.left + rect.width * 0.5;
+    let cy = rect.top + rect.height * 0.5;
+    let fleeX = opts.fleeX;
+    let fleeY = opts.fleeY;
+
+    if (fleeX == null || fleeY == null) {
+        let dx = cx - nearX;
+        let dy = cy - nearY;
+        let len = Math.hypot(dx, dy) || 1;
+        let flee =
+            Math.hypot(window.innerWidth, window.innerHeight) * (0.62 + Math.random() * 0.28);
+        fleeX = ((dx / len) * flee).toFixed(1) + "px";
+        fleeY = ((dy / len) * flee).toFixed(1) + "px";
+    }
+
+    startAbyssShyHue(el);
+
+    el.style.setProperty("--abyss-shy-flee-x", fleeX);
+    el.style.setProperty("--abyss-shy-flee-y", fleeY);
+    el._abyssFleeChar = getAbyssShyChar(el);
+    el._abyssFleeOriginX = cx;
+    el._abyssFleeOriginY = cy;
+    el._abyssChainMember = !!opts.chain;
+    invalidateAbyssShyLayout(el);
+    el.classList.remove("abyss-shy-flee");
+    void el.offsetWidth;
+    el.classList.add("abyss-shy-flee");
+
+    el.addEventListener(
+        "animationend",
+        function onFleeEnd(event) {
+            if (event.animationName !== "abyss-shy-flee") return;
+            finishAbyssShyFlee(el);
+        },
+        { once: true }
+    );
+
+    let effects = getDepthSectionConfig("abyss").effects;
+    setTimeout(function () {
+        if (el.classList.contains("abyss-shy-flee")) finishAbyssShyFlee(el);
+    }, (effects ? effects.shyFleeDurationMs : 3200) + 80);
+}
+
+function updateAbyssFleeChains(section) {
+    let effects = getDepthSectionConfig("abyss").effects;
+    if (!effects) return;
+
+    let chainRadius = effects.shyChainRadiusPx != null ? effects.shyChainRadiusPx : 52;
+    let chainRadiusSq = chainRadius * chainRadius;
+    let cache = section._abyssShyCache;
+    if (!cache) refreshAbyssShyCache(section);
+    cache = section._abyssShyCache;
+
+    let fleeing = [];
+    for (let i = 0; i < cache.length; i++) {
+        let el = cache[i];
+        if (el.classList.contains("abyss-shy-flee") && !el.classList.contains("abyss-shy-gone")) {
+            fleeing.push(el);
+        }
+    }
+    if (fleeing.length === 0) return;
+
+    for (let f = 0; f < fleeing.length; f++) {
+        let leader = fleeing[f];
+        let leaderRect = leader.getBoundingClientRect();
+        if (!leaderRect.width && !leaderRect.height) continue;
+
+        let posX = leaderRect.left + leaderRect.width * 0.5;
+        let posY = leaderRect.top + leaderRect.height * 0.5;
+        let matchChar = leader._abyssFleeChar || getAbyssShyChar(leader);
+        if (!matchChar) continue;
+
+        let fleeX = leader.style.getPropertyValue("--abyss-shy-flee-x");
+        let fleeY = leader.style.getPropertyValue("--abyss-shy-flee-y");
+
+        if (!leader.classList.contains("abyss-shy-hue")) {
+            startAbyssShyHue(leader);
+        }
+
+        for (let i = 0; i < cache.length; i++) {
+            let el = cache[i];
+            if (el === leader) continue;
+            if (el.classList.contains("abyss-shy-flee") || el.classList.contains("abyss-shy-gone")) {
+                continue;
+            }
+            if (getAbyssShyChar(el) !== matchChar) continue;
+
+            let cx = el._abyssCx;
+            let cy = el._abyssCy;
+            if (cx == null || cy == null) {
+                let rect = el.getBoundingClientRect();
+                if (!rect.width && !rect.height) continue;
+                cx = rect.left + rect.width * 0.5;
+                cy = rect.top + rect.height * 0.5;
+                el._abyssCx = cx;
+                el._abyssCy = cy;
+            }
+
+            let dx = posX - cx;
+            let dy = posY - cy;
+            if (dx * dx + dy * dy > chainRadiusSq) continue;
+
+            triggerAbyssShyFlee(el, posX, posY, {
+                fleeX: fleeX,
+                fleeY: fleeY,
+                chain: true
+            });
+        }
+    }
+}
+
+function nearestPointToRect(points, rect) {
+    let near = points[0];
+    let best = distancePointToRect(near.x, near.y, rect);
+    for (let p = 1; p < points.length; p++) {
+        let d = distancePointToRect(points[p].x, points[p].y, rect);
+        if (d < best) {
+            best = d;
+            near = points[p];
+        }
+    }
+    return { near: near, dist: best };
+}
+
+let abyssProximityLastPoint = null;
+let abyssProximityFrame = 0;
+
+function updateAbyssShyProximity(section) {
+    let effects = getDepthSectionConfig("abyss").effects;
+    if (!effects || !section) return;
+
+    let points = getAbyssProximityPoints();
+    let probe = getAbyssActivePointerPoint();
+
+    if (abyssProximityLastPoint) {
+        let moved = Math.hypot(
+            probe.x - abyssProximityLastPoint.x,
+            probe.y - abyssProximityLastPoint.y
+        );
+        abyssProximityFrame += 1;
+        if (moved < 4 && abyssProximityFrame % 3 !== 0) return;
+    }
+    abyssProximityLastPoint = { x: probe.x, y: probe.y };
+
+    let radius = effects.shyRadiusPx;
+    let radiusSq = radius * radius;
+    let fleeChance = effects.shyFleeChance != null ? effects.shyFleeChance : 1 / 70;
+    let shyEls = section._abyssShyCache;
+    if (!shyEls) refreshAbyssShyCache(section);
+    shyEls = section._abyssShyCache;
+
+    for (let i = 0; i < shyEls.length; i++) {
+        let el = shyEls[i];
+        if (el.classList.contains("abyss-shy-gone") || el.classList.contains("abyss-shy-flee")) {
+            continue;
+        }
+
+        let cx = el._abyssCx;
+        let cy = el._abyssCy;
+        if (cx == null || cy == null) {
+            let rect = el.getBoundingClientRect();
+            if (!rect.width && !rect.height) continue;
+            cx = rect.left + rect.width * 0.5;
+            cy = rect.top + rect.height * 0.5;
+            el._abyssCx = cx;
+            el._abyssCy = cy;
+        }
+
+        let minDistSq = Infinity;
+        let near = points[0];
+        for (let p = 0; p < points.length; p++) {
+            let dx = points[p].x - cx;
+            let dy = points[p].y - cy;
+            let dSq = dx * dx + dy * dy;
+            if (dSq < minDistSq) {
+                minDistSq = dSq;
+                near = points[p];
+            }
+        }
+
+        if (minDistSq >= radiusSq) {
+            el._abyssShyInRange = false;
+            continue;
+        }
+
+        if (el._abyssShyInRange) continue;
+        el._abyssShyInRange = true;
+
+        if (Math.random() < fleeChance) {
+            triggerAbyssShyFlee(el, near.x, near.y);
+        }
+    }
+}
+
+function flushAbyssShyFrame(now) {
+    abyssShyRafId = 0;
+    if (now == null) now = performance.now();
+    let section = activeDepthSectionEl;
+    if (!section || section.id !== "abyss" || !depthSectionHasSetup(section, "shyEffects")) {
+        return;
+    }
+
+    let minDelta = 1000 / ABYSS_SHY_MAX_FPS;
+    if (abyssShyLastFrameMs && now - abyssShyLastFrameMs < minDelta) {
+        scheduleAbyssShyFrame();
+        return;
+    }
+    abyssShyLastFrameMs = now;
+    updateAbyssStillness(section, now);
+    updateAbyssShyProximity(section);
+    updateAbyssFleeChains(section);
+    scheduleAbyssShyFrame();
+}
+
+function scheduleAbyssShyFrame() {
+    if (abyssShyRafId) return;
+    abyssShyRafId = requestAnimationFrame(flushAbyssShyFrame);
+}
+
+function startAbyssShyLoop() {
+    abyssShyLastFrameMs = 0;
+    scheduleAbyssShyFrame();
+}
+
+function clearAbyssShyFrame() {
+    if (abyssShyRafId) {
+        cancelAnimationFrame(abyssShyRafId);
+        abyssShyRafId = 0;
+    }
+    abyssShyLastFrameMs = 0;
+    abyssProximityLastPoint = null;
+    abyssProximityFrame = 0;
+    let abyssSection = document.getElementById("abyss");
+    clearAbyssStillnessState(abyssSection);
+}
+
+function isAbyssShyGazeEnabled() {
+    return (
+        !isGazeCalibrating() &&
+        activeDepthSectionEl &&
+        activeDepthSectionEl.id === "abyss" &&
+        depthSectionHasSetup(activeDepthSectionEl, "shyEffects")
+    );
+}
+
+// --- Gaze helpers (per-effect + shared word/number highlight) ---
+let depthGazeHoverActive = null;
+let depthGazeVowelActive = null;
+let depthGazePbdqActive = null;
+let depthGazeConsonantActive = null;
+let depthGazeGhActive = null;
+let depthGazeSymbolActive = null;
+let lastGazePoint = null;
+let activeDepthSectionEl = null;
+let depthGazeRafId = 0;
+let depthGazePendingPoint = null;
+const DEPTH_GAZE_MAX_FPS = 20;
+let depthGazeLastFrameMs = 0;
+
+function isGazeCalibrating() {
+    return document.documentElement.classList.contains("calibrating");
+}
+
+function isDepthGazeEnabled() {
+    if (isGazeCalibrating() || !activeDepthSectionEl) return false;
+    if (activeDepthSectionEl.id === "midwater") {
+        return depthSectionHasSetup(activeDepthSectionEl, "midwaterHover");
+    }
+    if (activeDepthSectionEl.id === "abyss") {
+        return depthSectionHasSetup(activeDepthSectionEl, "shyEffects");
+    }
+    return depthSectionHasSetup(activeDepthSectionEl, "gazeEffects");
+}
+
+function clearDepthGazeState() {
+    if (activeDepthSectionEl && activeDepthSectionEl.id === "midwater") {
+        clearMidwaterGazeInteractionState(activeDepthSectionEl);
+    }
+    setDepthGazeHover(null);
+    depthGazeVowelActive = null;
+    depthGazePbdqActive = null;
+    depthGazeSymbolActive = null;
+    if (depthGazeConsonantActive) {
+        depthGazeConsonantActive.classList.remove("gaze-hover");
+        depthGazeConsonantActive = null;
+    }
+    depthGazeGhActive = null;
+}
+
+function scanDepthHitsAtPoint(x, y) {
+    let hits = {
+        text: null,
+        vowel: null,
+        pbdq: null,
+        consonant: null,
+        gh: null,
+        symbol: null
+    };
+    let section = activeDepthSectionEl;
+    if (!section) return hits;
+
+    let stack = document.elementsFromPoint(x, y);
+    if (!stack) return hits;
+
+    for (let i = 0; i < stack.length; i++) {
+        let el = stack[i];
+        if (!el.classList) continue;
+        if (el.id === "webgazerGazeDot" || el.classList.contains("customMouse")) continue;
+        if (!section.contains(el)) continue;
+
+        if (!hits.symbol && isSymbolSwimElement(el)) hits.symbol = el;
+        if (!hits.gh && el.classList.contains("depth-letter-gh")) hits.gh = el;
+        if (!hits.vowel && el.classList.contains("depth-letter-vowel")) hits.vowel = el;
+        if (!hits.pbdq && el.classList.contains("depth-letter-pbdq")) hits.pbdq = el;
+        if (!hits.consonant && el.classList.contains("depth-letter-consonant")) {
+            hits.consonant = el;
+        }
+
+        if (!hits.text && el.closest) {
+            let textEl = el.closest(
+                ".depth-word, .depth-number, .depth-letter, .depth-digit, .depth-special, .depth-space"
+            );
+            if (textEl && section.contains(textEl)) hits.text = textEl;
+        }
+    }
+
+    return hits;
+}
+
+function applyDepthGazeHits(hits) {
+    setDepthGazeHover(hits.text);
+
+    if (hits.vowel !== depthGazeVowelActive) {
+        depthGazeVowelActive = hits.vowel;
+        if (hits.vowel) scheduleVowelBlink(hits.vowel);
+    }
+
+    if (hits.pbdq !== depthGazePbdqActive) {
+        depthGazePbdqActive = hits.pbdq;
+        if (hits.pbdq) schedulePbdqGrow(hits.pbdq);
+    }
+
+    if (hits.consonant !== depthGazeConsonantActive) {
+        if (depthGazeConsonantActive) {
+            depthGazeConsonantActive.classList.remove("gaze-hover");
+        }
+        depthGazeConsonantActive = hits.consonant;
+        if (depthGazeConsonantActive) {
+            depthGazeConsonantActive.classList.add("gaze-hover");
+        }
+    }
+
+    if (hits.gh !== depthGazeGhActive) {
+        depthGazeGhActive = hits.gh;
+        if (hits.gh) playGhGiant(hits.gh);
+    }
+
+    if (hits.symbol !== depthGazeSymbolActive) {
+        depthGazeSymbolActive = hits.symbol;
+        if (hits.symbol) playSymbolSwim(hits.symbol);
+    }
+}
+
+function flushDepthGazeUpdate(now) {
+    depthGazeRafId = 0;
+    if (!depthGazePendingPoint || !isDepthGazeEnabled()) return;
+
+    let minDelta = 1000 / DEPTH_GAZE_MAX_FPS;
+    if (now - depthGazeLastFrameMs < minDelta) {
+        scheduleDepthGazeUpdate(depthGazePendingPoint.x, depthGazePendingPoint.y);
+        return;
+    }
+    depthGazeLastFrameMs = now;
+
+    let x = depthGazePendingPoint.x;
+    let y = depthGazePendingPoint.y;
+    let section = activeDepthSectionEl;
+    if (section && section.id === "midwater") {
+        applyMidwaterGazeAtPoint(section, x, y);
+    } else if (section && section.id === "abyss") {
+        scheduleAbyssShyFrame();
+    } else {
+        applyDepthGazeHits(scanDepthHitsAtPoint(x, y));
+    }
+}
+
+function scheduleDepthGazeUpdate(x, y) {
+    depthGazePendingPoint = { x: x, y: y };
+    if (depthGazeRafId) return;
+    depthGazeRafId = requestAnimationFrame(flushDepthGazeUpdate);
+}
+
+function updateDepthGazeAtPoint(x, y) {
+    if (!isDepthGazeEnabled()) return;
+    scheduleDepthGazeUpdate(x, y);
+}
+
+function setDepthGazeHover(textEl) {
+    if (textEl === depthGazeHoverActive) return;
+    if (depthGazeHoverActive) {
+        depthGazeHoverActive.classList.remove("gaze-hover");
+    }
+    depthGazeHoverActive = textEl;
+    if (!depthGazeHoverActive) {
+        depthGazeVowelActive = null;
+        depthGazePbdqActive = null;
+        depthGazeSymbolActive = null;
+        if (depthGazeConsonantActive) {
+            depthGazeConsonantActive.classList.remove("gaze-hover");
+            depthGazeConsonantActive = null;
+        }
+        depthGazeGhActive = null;
+    }
+    if (depthGazeHoverActive) {
+        depthGazeHoverActive.classList.add("gaze-hover");
+        if (depthGazeHoverActive.classList.contains("depth-word")) {
+            scheduleWordFlicker(depthGazeHoverActive);
+        }
+    }
+}
+
+function appendResurfaceWaveChar(container, ch, index) {
+    let span = document.createElement("span");
+    span.className =
+        ch === " " ? "resurface-credits__space" : "resurface-credits__char";
+    span.textContent = ch === " " ? "\u00a0" : ch;
+    span.style.setProperty("--wave-i", String(index));
+    container.appendChild(span);
+}
+
+function buildResurfaceWaveLine(lineEl, text) {
+    if (!lineEl) return;
+    lineEl.replaceChildren();
+    for (let i = 0; i < text.length; i++) {
+        appendResurfaceWaveChar(lineEl, text[i], i);
+    }
+}
+
+function buildResurfaceLinkedCreditLine(lineEl, prefix, linkLabel, href) {
+    if (!lineEl) return;
+    lineEl.replaceChildren();
+    let index = 0;
+    for (let i = 0; i < prefix.length; i++) {
+        appendResurfaceWaveChar(lineEl, prefix[i], index++);
+    }
+    let link = document.createElement("a");
+    link.className = "resurface-credits__link";
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    for (let i = 0; i < linkLabel.length; i++) {
+        appendResurfaceWaveChar(link, linkLabel[i], index++);
+    }
+    lineEl.appendChild(link);
+}
+
+function buildResurfaceWebgazerCreditLine(lineEl) {
+    buildResurfaceLinkedCreditLine(
+        lineEl,
+        "thank you ",
+        "WebGazer.cs.brown.edu",
+        "https://webgazer.cs.brown.edu/"
+    );
+}
+
+const RESURFACE_YOUTUBE_URL =
+    "https://www.youtube.com/watch?v=dJjQ7rldybg&pp=ygUHZGVlcFBJVg%3D%3D";
+
+function buildResurfaceYoutubeCreditLine(lineEl) {
+    buildResurfaceLinkedCreditLine(lineEl, "", RESURFACE_YOUTUBE_URL, RESURFACE_YOUTUBE_URL);
+}
+
+function placeResurfaceCreditLine(lineEl) {
+    if (!lineEl) return;
+    lineEl.style.setProperty("--rand-x", 8 + Math.random() * 84 + "%");
+    lineEl.style.setProperty("--rand-y", 12 + Math.random() * 72 + "%");
+}
+
+function initResurfaceCredits() {
+    buildResurfaceWaveLine(resurfaceCreditAuthor, "website by Sasha Lee");
+    buildResurfaceWebgazerCreditLine(resurfaceCreditWebgazer);
+    buildResurfaceYoutubeCreditLine(resurfaceCreditYoutube);
+}
+
+function layoutResurfaceCredits() {
+    placeResurfaceCreditLine(resurfaceCreditAuthor);
+    placeResurfaceCreditLine(resurfaceCreditWebgazer);
+    placeResurfaceCreditLine(resurfaceCreditYoutube);
+}
+
+function setResurfaceCreditsVisible(visible) {
+    if (!resurfaceCredits) return;
+    resurfaceCredits.hidden = !visible;
+    resurfaceCredits.setAttribute("aria-hidden", visible ? "false" : "true");
+}
+
+function showResurface() {
+    hideDepthSections();
+    dismissIntroLayer();
+    removeCalibrationOverlay();
+    currentDepthId = null;
+    document.documentElement.dataset.depth = "resurface";
+
+    handshake.style.display = "flex";
+    handshakeButton.style.display = "";
+    handshakeButton.textContent = "Look deeper";
+    setResurfaceCreditsVisible(true);
+    layoutResurfaceCredits();
+
+    intro.style.backgroundColor = "";
+    intro.style.color = "";
+    intro.style.fontSize = "";
+    intro.style.zIndex = "";
+}
+
+function hideDepthSections() {
+    clearDepthDescendTimer();
+    clearDepthGazeState();
+    clearAbyssShyFrame();
+    clearHadalHueEffects(document.getElementById("hadal"));
+    pauseHadalClumpFloats(document.getElementById("hadal"));
+    depthGazePendingPoint = null;
+    if (depthGazeRafId) {
+        cancelAnimationFrame(depthGazeRafId);
+        depthGazeRafId = 0;
+    }
+    depthGazeLastFrameMs = 0;
+    activeDepthSectionEl = null;
+    let sections = document.querySelectorAll(".depth-section");
+    for (let i = 0; i < sections.length; i++) {
+        sections[i].classList.remove("active");
+    }
+}
+
+function showIntroLayer() {
+    intro.classList.add("intro-visible");
+    intro.style.opacity = "1";
+    intro.style.pointerEvents = "none";
+}
+
+function dismissIntroLayer() {
+    intro.classList.remove("intro-visible");
+    intro.style.opacity = "0";
+    intro.style.pointerEvents = "none";
+    intro.innerHTML = "";
+}
+
+function goToBlankScreen() {
+    hideDepthSections();
+    dismissIntroLayer();
+    intro.style.position = "fixed";
+    intro.style.top = "0";
+    intro.style.left = "0";
+    intro.style.right = "0";
+    intro.style.bottom = "0";
+    intro.style.backgroundColor = "rgb(2,0,30)";
+    intro.style.color = "";
+    intro.style.fontSize = "";
+    showIntroLayer();
+    intro.innerHTML = "";
+}
+
+function showDepthSection(sectionId) {
+    hideDepthSections();
+    clearDepthDescendTimer();
+    dismissIntroLayer();
+    let section = document.getElementById(sectionId);
+    if (!section) return;
+
+    prepareDepthSection(sectionId);
+
+    section.classList.add("active");
+    activeDepthSectionEl = section;
+    currentDepthId = sectionId;
+    document.documentElement.dataset.depth = sectionId;
+
+    if (getDepthSectionSetup(sectionId).applyEffectVars) {
+        applyDepthEffectVars(sectionId);
+    }
+    if (getDepthSectionSetup(sectionId).shyEffects) {
+        applyAbyssShyEffectVars(sectionId);
+        clearAbyssStillnessState(section);
+        startAbyssShyLoop();
+    }
+    if (getDepthSectionSetup(sectionId).hadalHueEffects) {
+        resumeHadalHueEffects(section);
+    }
+    if (getDepthSectionSetup(sectionId).hadalClumpEffects) {
+        resumeHadalClumpFloats(section);
+    }
+    scheduleDepthDescendButton(sectionId);
+    if (!isGazeCalibrating()) {
+        styleWebGazerDot();
+    }
+}
+
+function showMidwater() {
+    showDepthSection("midwater");
+}
+
+function clearIntroTimers() {
+    for (let i = 0; i < introTimers.length; i++) {
+        clearTimeout(introTimers[i]);
+    }
+    introTimers = [];
+}
+
+function isDepthBelowMidwater() {
+    let index = DEPTH_ORDER.indexOf(getActiveDepthId());
+    return index > 0;
+}
+
+function styleWebGazerDot() {
+    let gazeDot = document.getElementById("webgazerGazeDot");
+    if (!gazeDot) return;
+
+    let calibrating = isGazeCalibrating();
+    let compact = !calibrating && isDepthBelowMidwater();
+    let sizePx = compact ? 3 : 40;
+    let offsetPx = -(sizePx / 2);
+
+    gazeDot.style.setProperty(
+        "z-index",
+        calibrating ? "2147483647" : "200000",
+        "important"
+    );
+    gazeDot.style.setProperty("display", "block", "important");
+    gazeDot.style.setProperty("visibility", "visible", "important");
+    gazeDot.style.setProperty("left", offsetPx + "px", "important");
+    gazeDot.style.setProperty("top", offsetPx + "px", "important");
+    gazeDot.style.setProperty("width", sizePx + "px", "important");
+    gazeDot.style.setProperty("height", sizePx + "px", "important");
+    gazeDot.style.setProperty("box-sizing", "border-box", "important");
+    gazeDot.style.setProperty("border-radius", compact ? "50%" : "45%", "important");
+    gazeDot.style.setProperty("background", "rgba(200, 40, 80, 0.301)", "important");
+    gazeDot.style.setProperty("background-color", "rgba(200, 40, 80, 0.301)", "important");
+    gazeDot.style.setProperty(
+        "border",
+        compact ? "0" : "2px solid rgba(200, 40, 80, 0.678)",
+        "important"
+    );
+    gazeDot.style.setProperty("opacity", "1", "important");
+    gazeDot.style.setProperty("pointer-events", "none", "important");
+    gazeDot.style.setProperty(
+        "transition",
+        compact ? "none" : "border-radius 0.3s ease, width 2s linear, height 2s linear",
+        "important"
+    );
+}
+
+function styleCustomMouseForWebGazer() {
+    customMouse.style.setProperty("z-index", "2147483647", "important");
+    customMouse.style.setProperty("width", "4px", "important");
+    customMouse.style.setProperty("height", "4px", "important");
+    customMouse.style.setProperty("border-radius", "50%", "important");
+    customMouse.style.setProperty("background", "lightblue", "important");
+    customMouse.style.setProperty("background-color", "lightblue", "important");
+    customMouse.style.setProperty("border", "0", "important");
+    customMouse.style.setProperty("transition", "none", "important");
+}
+
+function removeCalibrationOverlay() {
+    let overlay = document.getElementById("gazeCalibration");
+    if (overlay && overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+    }
+    document.documentElement.classList.remove("calibrating");
+}
+
+function showCalibrationOverlay() {
+    removeCalibrationOverlay();
+    clearDepthGazeState();
+    document.documentElement.classList.add("calibrating");
+
+    let overlay = document.createElement("div");
+    overlay.id = "gazeCalibration";
+    overlay.className = "gaze-calibration";
+    overlay.style.setProperty("position", "fixed", "important");
+    overlay.style.setProperty("inset", "0", "important");
+    overlay.style.setProperty("z-index", "2147483647", "important");
+    overlay.style.setProperty("pointer-events", "none", "important");
+
+    let panel = document.createElement("div");
+    panel.className = "gaze-calibration-panel";
+    panel.innerHTML =
+        '<div class="gaze-calibration-status">Not yet calibrated</div>' +
+        '<div class="gaze-calibration-help">Look at each dot and click it ' +
+        CALIBRATION_CLICKS_REQUIRED +
+        ' times.</div>' +
+        '<button class="gaze-recalibrate" type="button">Recalibrate</button>' +
+        '<button class="gaze-done" type="button" hidden>Done</button>';
+    panel.style.setProperty("position", "fixed", "important");
+    panel.style.setProperty("top", "1rem", "important");
+    panel.style.setProperty("left", "1rem", "important");
+    panel.style.setProperty("z-index", "2147483647", "important");
+    panel.style.setProperty("pointer-events", "auto", "important");
+    overlay.appendChild(panel);
+
+    let status = panel.querySelector(".gaze-calibration-status");
+    let recalibrate = panel.querySelector(".gaze-recalibrate");
+    let done = panel.querySelector(".gaze-done");
+    recalibrate.addEventListener("click", function () {
+        if (typeof webgazer !== "undefined" && webgazer.clearData) {
+            webgazer.clearData();
+        }
+        showCalibrationOverlay();
+    });
+    done.addEventListener("click", function () {
+        overlay.querySelectorAll(".gaze-calibration-dot").forEach(function (calibrationDot) {
+            calibrationDot.disabled = true;
+        });
+        removeCalibrationOverlay();
+        styleWebGazerDot();
+        showMidwater();
+    });
+
+    let points = [
+        [12, 15],
+        [50, 15],
+        [88, 15],
+        [18, 50],
+        [50, 50],
+        [82, 50],
+        [12, 85],
+        [50, 85],
+        [88, 85]
+    ];
+
+    for (let i = 0; i < points.length; i++) {
+        let dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "gaze-calibration-dot";
+        dot.style.left = points[i][0] + "%";
+        dot.style.top = points[i][1] + "%";
+        dot.style.setProperty("position", "fixed", "important");
+        dot.style.setProperty("z-index", "2147483647", "important");
+        dot.style.setProperty("width", "32px", "important");
+        dot.style.setProperty("height", "32px", "important");
+        dot.style.setProperty("transform", "translate(-50%, -50%)", "important");
+        dot.style.setProperty("border-radius", "50%", "important");
+        dot.style.setProperty("border", "0", "important");
+        dot.style.setProperty("background-color", "rgb(200, 40, 80)", "important");
+        dot.style.setProperty("box-shadow", "0 0 18px rgba(200, 40, 80, 0.85)", "important");
+        dot.style.setProperty("pointer-events", "auto", "important");
+        dot.dataset.clicks = "0";
+
+        for (let ringIndex = 0; ringIndex < CALIBRATION_CLICKS_REQUIRED; ringIndex++) {
+            let ring = document.createElement("span");
+            ring.className = "gaze-calibration-ring";
+            dot.appendChild(ring);
+        }
+
+        dot.addEventListener("click", function () {
+            let clicks = Number(dot.dataset.clicks) + 1;
+            dot.dataset.clicks = clicks;
+
+            let remainingRing = dot.querySelector(".gaze-calibration-ring:not(.gaze-ring-removed)");
+            if (remainingRing) {
+                remainingRing.classList.add("gaze-ring-removed");
+            }
+
+            let rect = dot.getBoundingClientRect();
+            let x = rect.left + rect.width / 2;
+            let y = rect.top + rect.height / 2;
+            webgazer.recordScreenPosition(x, y, "click");
+
+            let progress = Math.min(clicks / CALIBRATION_CLICKS_REQUIRED, 1);
+            dot.style.opacity = String(1 - progress * 0.65);
+
+            if (clicks >= CALIBRATION_CLICKS_REQUIRED) {
+                dot.classList.add("gaze-calibrated");
+            }
+
+            let calibratedCount = overlay.querySelectorAll(".gaze-calibrated").length;
+            status.textContent =
+                calibratedCount === points.length
+                    ? "Calibrated"
+                    : "Calibrating " + calibratedCount + " / " + points.length;
+            if (calibratedCount === points.length) {
+                done.hidden = false;
+            }
+        });
+
+        overlay.appendChild(dot);
+    }
+
+    document.body.appendChild(overlay);
+    styleWebGazerDot();
+    waitForWebGazerDotAndStyle();
+    console.log("WebGazer calibration overlay shown");
+}
+
+function waitForWebGazerDotAndStyle() {
+    if (document.getElementById("webgazerGazeDot")) {
+        styleWebGazerDot();
+        return;
+    }
+    let observer = new MutationObserver(function () {
+        if (document.getElementById("webgazerGazeDot")) {
+            observer.disconnect();
+            styleWebGazerDot();
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    setTimeout(function () {
+        observer.disconnect();
+    }, 5000);
+}
+
+function loadScriptOnce(src, cacheKey) {
+    if (cacheKey === "webgazer" && typeof webgazer !== "undefined") {
+        return Promise.resolve();
+    }
+    if (cacheKey === "tone" && typeof Tone !== "undefined") {
+        return Promise.resolve();
+    }
+    let existing = cacheKey === "webgazer" ? webGazerScriptPromise : toneScriptPromise;
+    if (existing) return existing;
+
+    let promise = new Promise(function (resolve, reject) {
+        let script = document.createElement("script");
+        script.src = src;
+        script.async = true;
+        script.onload = function () {
+            resolve();
+        };
+        script.onerror = function () {
+            reject(new Error("Failed to load " + src));
+        };
+        document.head.appendChild(script);
+    });
+
+    if (cacheKey === "webgazer") webGazerScriptPromise = promise;
+    else toneScriptPromise = promise;
+    return promise;
+}
+
+function loadWebGazerScript() {
+    return loadScriptOnce(
+        "https://cdn.jsdelivr.net/npm/webgazer@3.5.3/dist/webgazer.min.js",
+        "webgazer"
+    );
+}
+
+function loadToneScript() {
+    return loadScriptOnce("https://unpkg.com/tone", "tone");
+}
 
 function startWebGazer() {
+    console.log("startWebGazer called");
+    loadWebGazerScript().then(runWebGazerAfterScriptLoad).catch(function (err) {
+        console.warn("WebGazer script did not load; check network or script src.", err);
+    });
+}
+
+function runWebGazerAfterScriptLoad() {
     if (typeof webgazer === "undefined") {
         console.warn("WebGazer script did not load; check network or script src.");
+        return;
+    }
+    if (webGazerStarted) {
+        if (webgazer.resume) webgazer.resume();
+        gazePreferenceActive = true;
+        styleCustomMouseForWebGazer();
+        styleWebGazerDot();
+        showCalibrationOverlay();
+        return;
+    }
+    if (webGazerStarting) {
+        showCalibrationOverlay();
         return;
     }
     if (!window.isSecureContext) {
@@ -54,43 +2488,90 @@ function startWebGazer() {
         return;
     }
     intro.style.zIndex = "5";
-    webgazer
-        .setGazeListener(function (data, elapsedTime) {
-            if (data == null) return;
-            const x = data.x;
-            const y = data.y;
-            console.log("Looking at:", x, y);
-        })
-        .begin();
+    styleCustomMouseForWebGazer();
+    console.log("WebGazer setup starting");
+    webgazer.params.faceMeshSolutionPath =
+        "https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619";
+    console.log("MediaPipe face mesh assets:", webgazer.params.faceMeshSolutionPath);
+    webgazer.params.showGazeDot = true;
+    webgazer.showPredictionPoints(false);
+    showCalibrationOverlay();
+    webGazerStarting = true;
+    webgazer.setGazeListener(function (data, elapsedTime) {
+        let p = getGazeXY(data);
+        if (p) {
+            if (!firstGazeSampleLogged) {
+                console.log("eyeGaze activated", p);
+                firstGazeSampleLogged = true;
+            }
+            lastGazeSampleTime = Date.now();
+            let stablePoint = getSmoothedGazePoint(p);
+            lastGazePoint = stablePoint;
+            if (isGazeCalibrating()) {
+                return;
+            }
+            updateDepthGazeAtPoint(stablePoint.x, stablePoint.y);
+            return;
+        }
+        if (shouldUseMouseForCursor()) {
+            clearDepthGazeState();
+        }
+    });
+    webgazer.begin().then(function () {
+        webGazerStarted = true;
+        webGazerStarting = false;
+        gazePreferenceActive = true;
+        styleWebGazerDot();
+        console.log("WebGazer camera started; waiting for gaze predictions");
+    }).catch(function (err) {
+        console.warn("WebGazer begin failed:", err);
+        webGazerStarting = false;
+        gazePreferenceActive = false;
+    });
 }
 
 		handshakeButton.addEventListener('click', function() {
-			Tone.start();
+            loadToneScript().then(function () {
+                if (typeof Tone !== "undefined") Tone.start();
+            });
+            loadWebGazerScript().catch(function () {});
 			handshake.style.display = 'none';
             handshakeButton.style.display = 'none';
+            setResurfaceCreditsVisible(false);
 
-    setTimeout(function () {
+    introTimers.push(setTimeout(function () {
     intro.innerHTML = "When you picture the ocean,";
     intro.style.fontSize = "20px";
     intro.style.backgroundColor = "cornflowerblue";
     intro.style.color = "rgb(2,0,30)";
-    intro.style.opacity = "1";
-    }, 0);
+    showIntroLayer();
+    }, 0));
 
-    setTimeout(function () {
+    introTimers.push(setTimeout(function () {
     intro.innerHTML = "When you picture the ocean, what do you see?";
     intro.style.backgroundColor = "cornflowerblue"
-    }, 3000);
+    }, 3000));
 
-    setTimeout(function () {
+    introTimers.push(setTimeout(function () {
     intro.style.backgroundColor = "rgb(2,0,30)";
     intro.style.color = "rgb(200,40,80)";
-    startWebGazer();
-    }, 4000);
+    customMouse.style.backgroundColor = "rgba(200, 40, 80, 0.301)";
+    customMouse.style.borderColor= "rgba(200, 40, 80, 0.678)";
+
+    intro.innerHTML = 
+        "When you picture the ocean, what do you see?"
+    ;
+
+    }, 4000));
+
+    introTimers.push(setTimeout(function () {
+        goToBlankScreen();
+        startWebGazer();
+    }, 8000));
 		});
 
-// tone 
-		let synth = new Tone.Synth().toDestination();
+prepareAllDepthTextMarkup();
+initResurfaceCredits();
 
     </script>
 

@@ -4,16 +4,16 @@ window.addEventListener("load", function () {
     let blobTile = document.querySelector(".patternTile.pattern-blobs");
     let squaresTile = document.querySelector(".patternTile.pattern-squares");
     let paperText = document.querySelector("#paperText");
-    let drifter = document.querySelector(".drifter");
+    let customMouse = document.querySelector(".customMouse");
 
     document.body.addEventListener("mousemove", function (event) {
-        drifter.style.left = event.clientX + "px";
-        drifter.style.top = event.clientY + "px";
+        customMouse.style.left = event.clientX + "px";
+        customMouse.style.top = event.clientY + "px";
     });
 
     setInterval(function () {
         let radius = 42 + Math.random() * 6;
-        drifter.style.borderRadius = radius + "%";
+        customMouse.style.borderRadius = radius + "%";
     }, 300);
 
     //papertext
@@ -111,8 +111,8 @@ window.addEventListener("load", function () {
     setTimeout(function () {
         water.style.width = "100vw";
         water.style.height = "100vh";
-        drifter.style.width = "20px";
-        drifter.style.height = "20px";
+        customMouse.style.width = "20px";
+        customMouse.style.height = "20px";
         patternStrip.classList.add("active");
         buildBlobPattern();
         buildSquaresPattern();

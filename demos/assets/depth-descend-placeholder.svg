@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Go deeper">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#e8ffd0"/>
+      <stop offset="55%" stop-color="#b2fe78" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#b2fe78" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#glow)"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#b2fe78" stroke-width="3" opacity="0.95"/>
+  <circle cx="60" cy="60" r="44" fill="rgba(255, 248, 220, 0.12)"/>
+  <path
+    d="M60 32 L60 72 M44 56 L60 72 L76 56"
+    fill="none"
+    stroke="#fff8dc"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

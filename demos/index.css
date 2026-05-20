@@ -1,114 +1,1385 @@
-
+html {
+    cursor: none;
+}
 
 body {
     margin: 0;
-	background: linear-gradient(to bottom, rgb(144, 230, 245) 0%, rgb(49, 104, 175) 55%, rgb(17, 40, 117) 100%);
-
+    min-height: 100vh;
+    background-color: rgb(17, 40, 117);
+    cursor: none;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
+/* EFFECT: background — slight brightness + hue shift */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgb(144, 230, 245) 0%, rgb(49, 104, 175) 55%, rgb(17, 40, 117) 100%);
+    animation: background-shift 22s ease-in-out infinite alternate;
+}
 
-/*handshake css*/
+@keyframes background-shift {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+
+    50% {
+        filter: hue-rotate(10deg) brightness(1.05);
+    }
+
+    100% {
+        filter: hue-rotate(-8deg) brightness(0.96);
+    }
+}
+
+body * {
+    cursor: none !important;
+}
+
+html.calibrating,
+html.calibrating body,
+html.calibrating body * {
+    cursor: none !important;
+}
+
+.customMouse {
+    z-index: 120;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-radius: 45%;
+    background-color: rgba(157, 244, 27, 0.301);
+    border: 2px solid rgba(178, 254, 64, 0.678);
+    pointer-events: none;
+    transition: border-radius 0.3s ease, width 3s linear, height 3s linear;
+}
+
+/*handshake / resurface — opening “Look deeper” screen (also shown after hadal) */
 
 #handshake {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color:cornflowerblue;
-    
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-			cursor: pointer;
-			z-index: 99998;
-		}
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: cornflowerblue;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    z-index: 30;
+}
+
 #handshake:active {
-    background-color:cornflowerblue;
-            font-style: italic;
-    
+    background-color: cornflowerblue;
+    font-style: italic;
+
 }
 
 #handshakeButton {
-			position: absolute;
-			background-color:cornflowerblue;
-            color: cornsilk;
-            font-size: 40px;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-			cursor: pointer;
-			z-index: 99999;
-		}
+    position: absolute;
+    background-color: cornflowerblue;
+    color: cornsilk;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    z-index: 31;
+}
+
 #handshakeButton:hover {
-    background-color:cornflowerblue;
-            font-style: italic;
-    
+    background-color: cornflowerblue;
+    font-style: italic;
+
+}
+
+html[data-depth="resurface"] #handshake {
+    display: flex;
+}
+
+html[data-depth="resurface"] #handshakeButton {
+    display: block;
+}
+
+/* Resurface credits — wave text at random positions (hadal ending only) */
+.resurface-credits {
+    position: fixed;
+    inset: 0;
+    z-index: 32;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+.resurface-credits__line {
+    position: fixed;
+    left: var(--rand-x, 50%);
+    top: var(--rand-y, 50%);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    font-size: 1.44rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: rgba(255, 248, 220, 0.88);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.resurface-credits__line--url {
+    max-width: min(92vw, 40rem);
+    white-space: normal;
+    word-break: break-all;
+}
+
+.resurface-credits__char,
+.resurface-credits__space {
+    display: inline-block;
+    animation: resurface-credit-wave 2.8s ease-in-out infinite;
+    animation-delay: calc(var(--wave-i, 0) * 0.07s);
+}
+
+.resurface-credits__link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    pointer-events: auto;
+}
+
+.resurface-credits__link:hover {
+    color: cornsilk;
+}
+
+@keyframes resurface-credit-wave {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.45em);
+    }
+}
+
+html[data-depth="resurface"] .resurface-credits:not([hidden]) {
+    display: block;
 }
 
 /* intro sequence css */
 
+/* Layer stack: handshake (30) < intro (40) < depth inactive (50) < depth active (60) < dev/gaze UI (100+) */
 #intro {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 1rem;
     box-sizing: border-box;
-    z-index: 100000;
+    z-index: 40;
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
 }
-    .allkelps {
-        display: flex;
-        gap: 3px;
-        width: 100%;
-        min-height: 100vh;
-        position:relative;
-        z-index: 1;
-        /* top:300px; */
-        height: 100vh;
-        align-items: stretch;
-        justify-content: flex-start;
-        
-    }
-    .kelpcontainer {
-		display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        position: relative; 
-        flex: 1 1 0;
-        /* top: 300px;   */
-	}
-	.kelpwater {
-		background-color: transparent;
-		padding: 0;
-		flex-grow: 1;
-	}
-	.kelp {
-		color: rgb(28, 59, 39);
-		height: 16vh;
-        width: 100%;
-		transition: height 4s ease;
-	}
-	.kelp:hover {
-		height: 75vh;
-	}
 
-    .dive-link {
-        position: fixed;
-        left: 50%;
-        top: 60%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        background-color: transparent;
-        color: white;
+#intro.intro-visible {
+    display: flex;
+    visibility: visible;
+}
+
+#midwater,
+#midnight,
+#abyss,
+#hadal {
+    --depth-text-color: rgba(155, 162, 182, 0.82);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: rgb(2, 0, 30);
+    color: var(--depth-text-color);
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    content-visibility: hidden;
+    contain: strict;
+}
+
+#midnight {
+    --depth-text-color: rgba(105, 112, 132, 0.9);
+}
+
+#abyss {
+    --abyss-shy-hidden: rgb(2, 0, 30);
+    --abyss-still-color: rgb(9, 8, 38);
+    --abyss-shy-hue-duration: 2.8s;
+    --depth-text-color: var(--abyss-shy-hidden);
+}
+
+/* Inactive / hidden depth layers: out of layout and hit-testing */
+#midwater:not(.active),
+#midnight:not(.active),
+#abyss:not(.active),
+#hadal:not(.active) {
+    display: none !important;
+}
+
+html.calibrating .depth-section {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    content-visibility: hidden;
+}
+
+/* TEXT TEXT TEXT */
+/* Per-depth text effects — one block per section id (#midwater, #midnight, #abyss, #hadal).
+ * JS feature flags: depth-nav.js → DEPTH_SECTION_CONFIG */
+
+#midwater.active,
+#midnight.active,
+#abyss.active,
+#hadal.active {
+    display: flex;
+    z-index: 60;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    overflow: visible;
+    content-visibility: visible;
+    contain: layout style;
+}
+
+/* EFFECT: depth-section background — slight brightness + hue shift (reading view) */
+#midwater.active::before,
+#midnight.active::before,
+#abyss.active::before,
+#hadal.active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgb(2, 0, 30);
+    filter: hue-rotate(-6deg) brightness(0.96);
+}
+
+@keyframes depth-background-shift {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
     }
-	
+
+    50% {
+        filter: hue-rotate(12deg) brightness(1.08);
+    }
+
+    100% {
+        filter: hue-rotate(-10deg) brightness(0.94);
+    }
+}
+
+.depth-text {
+    display: block;
+    max-width: 1000px;
+    width: min(100%, 1000px);
+    min-width: 0;
+    text-align: left;
+    pointer-events: auto;
+    transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Hadal: hover words in text; spaces/digits non-interactive */
+#hadal .depth-text .depth-word {
+    pointer-events: auto;
+}
+
+#hadal .depth-digit,
+#hadal .depth-special,
+#hadal .depth-space,
+#hadal .depth-number {
+    pointer-events: none;
+}
+
+#hadal .depth-word.hadal-word-gone {
+    display: none;
+}
+
+/* ========== #midwater text effects ========== */
+#midwater .depth-word {
+    display: inline-block;
+    position: relative;
+    pointer-events: auto;
+    transition: color 0.35s ease;
+}
+
+#midwater .depth-word::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    transition: transform 0.35s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#midwater .depth-word.highlight-tone-yellow::before {
+    background: rgba(240, 199, 32, 0.89);
+}
+
+#midwater .depth-word.highlight-tone-purple::before {
+    background: rgba(210, 185, 245, 0.88);
+}
+
+#midwater .depth-word.highlight-tone-blue::before {
+    background: rgba(175, 215, 248, 0.88);
+}
+
+#midwater .depth-word.highlight-hold {
+    color: cornsilk;
+}
+
+#midwater .depth-word.highlight-hold::before {
+    transform: scaleY(1);
+}
+
+#midwater .depth-word .depth-letter,
+#midwater .depth-word .depth-digit,
+#midwater .depth-word .depth-special {
+    position: relative;
+    z-index: 1;
+}
+
+#midwater .depth-word.word-strike {
+    position: relative;
+    color: rgb(200, 40, 80);
+}
+
+#midwater .depth-word.word-strike .depth-letter,
+#midwater .depth-word.word-strike .depth-letter:hover {
+    color: rgb(200, 40, 80);
+}
+
+#midwater .depth-word.word-strike.highlight-hold {
+    color: rgb(200, 40, 80);
+}
+
+#midwater .depth-word.word-strike::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1.5px solid rgb(200, 40, 80);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes midwater-word-vanish {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+
+    12% {
+        transform: scale(1.08) translate(-5px, 0);
+    }
+
+    24% {
+        transform: scale(1.12) translate(6px, 0);
+    }
+
+    36% {
+        transform: scale(1.18) translate(-7px, 0);
+    }
+
+    48% {
+        transform: scale(1.25) translate(9px, 0);
+    }
+
+    60% {
+        transform: scale(1.35) translate(-6px, 0);
+    }
+
+    78% {
+        transform: scale(1.55) translate(3px, 0);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.9) translate(0, 0);
+        opacity: 0;
+    }
+}
+
+#midwater .depth-word.word-vanish-play {
+    animation: midwater-word-vanish var(--midwater-word-vanish-duration, 1.2s) ease-in forwards;
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#midwater .depth-word.word-vanish-play .depth-letter,
+#midwater .depth-word.word-vanish-play .depth-letter:hover {
+    transform: none;
+    font-style: normal;
+}
+
+#midwater .depth-word.word-gone {
+    display: none;
+}
+
+@keyframes midwater-sentence-worm {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    35% {
+        transform: translateY(-8px);
+    }
+
+    70% {
+        transform: translateY(7px);
+    }
+}
+
+#midwater .depth-letter.worm-wiggle-play,
+#midwater .depth-digit.worm-wiggle-play,
+#midwater .depth-special.worm-wiggle-play {
+    animation: midwater-sentence-worm var(--worm-duration, 0.3s) ease-in-out forwards;
+    animation-delay: var(--worm-delay, 0ms);
+    transition: none;
+}
+
+#midwater .depth-letter.worm-wiggle-play:hover {
+    transform: none;
+    font-style: inherit;
+}
+
+#midwater .depth-letter {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.35s ease, transform 0.25s ease;
+}
+
+#midwater .depth-letter-vowel:hover,
+#midwater .depth-letter-vowel.gaze-hover {
+    color: cornsilk;
+    font-style: italic;
+}
+
+#midwater .depth-letter-consonant:hover,
+#midwater .depth-letter-consonant.gaze-hover,
+#midwater .depth-letter-h:hover,
+#midwater .depth-letter-h.gaze-hover,
+#midwater .depth-letter-gh:hover,
+#midwater .depth-letter-gh.gaze-hover,
+#midwater .depth-letter-pbdq:hover,
+#midwater .depth-letter-pbdq.gaze-hover {
+    color: cornsilk;
+    transform: scale(2.55);
+    transform-origin: center bottom;
+}
+
+#midwater .depth-letter:not(.depth-letter-vowel):not(.depth-letter-consonant):not(.depth-letter-h):not(.depth-letter-gh):not(.depth-letter-pbdq):hover,
+#midwater .depth-letter:not(.depth-letter-vowel):not(.depth-letter-consonant):not(.depth-letter-h):not(.depth-letter-gh):not(.depth-letter-pbdq).gaze-hover {
+    color: cornsilk;
+    transform: scale(1.55);
+    transform-origin: center bottom;
+}
+
+#midwater .depth-number,
+#midwater .depth-digit,
+#midwater .depth-special {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.35s ease, background 0.35s ease;
+}
+
+#midwater .depth-number.highlight-hold,
+#midwater .depth-special.highlight-hold {
+    color: cornsilk;
+    background: rgba(255, 248, 220, 0.14);
+    border-radius: 0;
+}
+
+/* ========== #midnight text effects ========== */
+#midnight .depth-word {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+#midnight .depth-word:hover,
+#midnight .depth-word.gaze-hover {
+    color: cornsilk;
+}
+
+@keyframes word-letter-flicker {
+    0%,
+    100% {
+        color: var(--depth-text-color);
+    }
+
+    20% {
+        color: rgb(178, 254, 120);
+    }
+
+    40% {
+        color: var(--depth-text-color);
+    }
+
+    55% {
+        color: rgb(255, 220, 80);
+    }
+
+    70% {
+        color: var(--depth-text-color);
+    }
+
+    85% {
+        color: rgb(255, 140, 50);
+    }
+}
+
+#midnight .depth-letter.word-flicker-play {
+    animation: word-letter-flicker var(--word-flicker-duration, 1.2s) ease-in-out forwards;
+    animation-delay: var(--word-flicker-delay, 0ms);
+    transition: none;
+}
+
+#midnight .depth-number {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+#midnight .depth-number:hover,
+#midnight .depth-number.gaze-hover {
+    color: cornsilk;
+}
+
+#midnight .depth-letter {
+    display: inline-block;
+    pointer-events: auto;
+    transition: opacity 0.8s ease, transform 3s ease;
+}
+
+#midnight .depth-letter:hover,
+#midnight .depth-letter.gaze-hover {
+    transform: translateY(-6px);
+    color: lightblue;
+}
+
+#midnight .depth-letter-h:hover,
+#midnight .depth-letter-h.gaze-hover {
+    transform: scale(1.8);
+    color: rgb(163, 47, 26);
+    transition: transform 0s;
+}
+
+#midnight .depth-letter-gh {
+    transition: none;
+}
+
+@keyframes gh-giant-flash {
+    0%,
+    86.99% {
+        scale: var(--gh-giant-scale, 90);
+        opacity: 0.12;
+        filter: blur(var(--gh-giant-blur, 4px));
+        color: inherit;
+    }
+
+    87%,
+    100% {
+        scale: 1;
+        opacity: 1;
+        filter: none;
+        color: inherit;
+    }
+}
+
+#midnight .depth-letter-gh.gh-giant-play {
+    animation: gh-giant-flash 1s linear forwards;
+    transition: none;
+    position: relative;
+    z-index: 50;
+    transform-origin: center center;
+    pointer-events: none;
+    isolation: isolate;
+}
+
+#midnight .depth-letter-consonant {
+    transition: none;
+}
+
+#midnight .depth-letter-consonant:hover,
+#midnight .depth-letter-consonant.gaze-hover {
+    transform: scaleY(-1);
+    color: lightblue;
+}
+
+@keyframes vowel-orange-blink {
+    0%,
+    100% {
+        color: inherit;
+    }
+
+    50% {
+        color: rgb(163, 47, 26);
+    }
+}
+
+#midnight .depth-letter-vowel.vowel-blink-play {
+    animation: vowel-orange-blink 0.4s ease-in-out 2;
+}
+
+@keyframes pbdq-grow-shrink {
+    0% {
+        scale: 1;
+        translate: 0 0;
+        opacity: 1;
+        color: inherit;
+    }
+
+    45% {
+        scale: 1.85;
+        opacity: 0.4;
+        color: lightblue;
+    }
+
+    100% {
+        scale: 0;
+        translate: var(--pbdq-drift-x, 0px) var(--pbdq-drift-y, 0px);
+        opacity: 0;
+        color: lightblue;
+    }
+}
+
+#midnight .depth-letter-pbdq.pbdq-grow-play {
+    animation: pbdq-grow-shrink var(--pbdq-grow-duration, 5.5s) ease-in-out forwards;
+    transition: none;
+}
+
+#midnight .depth-digit {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+#midnight .depth-digit:hover,
+#midnight .depth-digit.gaze-hover {
+    transform: translateY(-6px);
+    color: lightblue;
+}
+
+#midnight .depth-special {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+#midnight .depth-special:hover,
+#midnight .depth-special.gaze-hover {
+    transform: translateY(-6px);
+    color: lightblue;
+}
+
+@keyframes symbol-swim-wiggle-off {
+    0% {
+        translate: 0 0;
+        rotate: 0deg;
+        opacity: 1;
+        color: inherit;
+    }
+
+    14% {
+        rotate: 9deg;
+        color: lightblue;
+    }
+
+    28% {
+        rotate: -10deg;
+        color: cornsilk;
+    }
+
+    42% {
+        rotate: 8deg;
+        color: rgb(200, 40, 80);
+    }
+
+    56% {
+        rotate: -9deg;
+        color: rgb(163, 47, 26);
+    }
+
+    70% {
+        rotate: 7deg;
+        color: cornflowerblue;
+    }
+
+    84% {
+        rotate: -8deg;
+        color: lightblue;
+    }
+
+    100% {
+        translate: var(--symbol-swim-x, 100vw) var(--symbol-swim-y, -40vh);
+        rotate: 11deg;
+        opacity: 0;
+        color: cornsilk;
+    }
+}
+
+#midnight .depth-digit.symbol-swim-play,
+#midnight .depth-special.symbol-swim-play {
+    animation: symbol-swim-wiggle-off var(--symbol-swim-duration, 6.5s) ease-in forwards;
+    transition: none;
+    z-index: 20;
+    position: relative;
+}
+
+#midnight .depth-space {
+    display: inline-block;
+    pointer-events: auto;
+    transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+#midnight .depth-space:hover,
+#midnight .depth-space.gaze-hover {
+    transform: scaleX(2);
+}
+
+/* ========== #abyss text effects — shy characters (proximity via JS) ========== */
+#abyss .depth-word,
+#abyss .depth-number {
+    display: inline-block;
+}
+
+#abyss .abyss-shy {
+    display: inline-block;
+    position: relative;
+    color: var(--abyss-still-color, var(--abyss-shy-hidden));
+    pointer-events: none;
+    transform-origin: center center;
+    z-index: 1;
+}
+
+/* Still reveal: solid color lightens (rgb lerp) on hold still — no opacity */
+#abyss .abyss-shy:not(.abyss-shy-gone):not(.abyss-shy-flee) {
+    color: var(--abyss-still-color, var(--abyss-shy-hidden));
+}
+
+#abyss .abyss-shy.abyss-shy-hue:not(.abyss-shy-gone):not(.abyss-shy-flee) {
+    color: var(--abyss-still-color, var(--abyss-shy-hidden));
+    filter: hue-rotate(var(--abyss-shy-hue-start, 0deg))
+        saturate(var(--abyss-shy-hue-saturate, 3)) brightness(var(--abyss-shy-hue-brightness, 2.4));
+    animation: abyss-shy-hue-shift var(--abyss-shy-hue-duration, 2.8s) linear infinite;
+    animation-direction: var(--abyss-shy-hue-direction, normal);
+    animation-delay: var(--abyss-shy-hue-delay, 0s);
+}
+
+#abyss .abyss-shy.abyss-shy-flee {
+    color: var(--abyss-shy-hidden);
+    opacity: 1;
+    animation: abyss-shy-flee var(--abyss-shy-flee-duration, 3.2s) linear forwards;
+    transition: none;
+    pointer-events: none;
+    z-index: 15;
+}
+
+#abyss .abyss-shy.abyss-shy-flee.abyss-shy-hue {
+    opacity: 1;
+    filter: hue-rotate(var(--abyss-shy-hue-start, 0deg))
+        saturate(var(--abyss-shy-hue-saturate, 3.2)) brightness(var(--abyss-shy-hue-brightness, 2.6));
+    animation:
+        abyss-shy-flee var(--abyss-shy-flee-duration, 3.2s) linear forwards,
+        abyss-shy-hue-shift var(--abyss-shy-hue-duration, 2.8s) linear infinite;
+    animation-delay: 0s, var(--abyss-shy-hue-delay, 0s);
+    animation-direction: normal, var(--abyss-shy-hue-direction, normal);
+}
+
+#abyss .abyss-shy.abyss-shy-gone {
+    color: var(--abyss-shy-hidden);
+    opacity: 1;
+    pointer-events: none;
+}
+
+#abyss .abyss-shy.abyss-shy-gone.abyss-shy-flee.abyss-shy-hue {
+    opacity: 1;
+    filter: hue-rotate(var(--abyss-shy-hue-end, 0deg))
+        saturate(var(--abyss-shy-hue-saturate, 3.2)) brightness(var(--abyss-shy-hue-brightness, 2.6));
+    animation:
+        abyss-shy-flee var(--abyss-shy-flee-duration, 3.2s) linear forwards,
+        abyss-shy-hue-shift var(--abyss-shy-hue-duration, 2.8s) linear infinite;
+    animation-delay: 0s, var(--abyss-shy-hue-delay, 0s);
+    animation-direction: normal, var(--abyss-shy-hue-direction, normal);
+}
+
+@keyframes abyss-shy-hue-shift {
+    0% {
+        filter: hue-rotate(var(--abyss-shy-hue-start, 0deg))
+            saturate(var(--abyss-shy-hue-saturate, 3)) brightness(var(--abyss-shy-hue-brightness, 2.4));
+    }
+
+    100% {
+        filter: hue-rotate(var(--abyss-shy-hue-end, 360deg))
+            saturate(var(--abyss-shy-hue-saturate, 3)) brightness(var(--abyss-shy-hue-brightness, 2.4));
+    }
+}
+
+@keyframes abyss-shy-flee {
+    0% {
+        translate: 0 0;
+        rotate: 0deg;
+        opacity: 1;
+        color: var(--abyss-shy-hidden);
+    }
+
+    7% {
+        translate:
+            calc(0.07 * var(--abyss-shy-flee-x, 100vw) + 7px)
+            calc(0.07 * var(--abyss-shy-flee-y, -100vh) - 5px);
+        rotate: -11deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    14% {
+        translate:
+            calc(0.14 * var(--abyss-shy-flee-x, 100vw) - 8px)
+            calc(0.14 * var(--abyss-shy-flee-y, -100vh) + 6px);
+        rotate: 12deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    21% {
+        translate:
+            calc(0.21 * var(--abyss-shy-flee-x, 100vw) + 9px)
+            calc(0.21 * var(--abyss-shy-flee-y, -100vh) - 7px);
+        rotate: -13deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    28% {
+        translate:
+            calc(0.28 * var(--abyss-shy-flee-x, 100vw) - 9px)
+            calc(0.28 * var(--abyss-shy-flee-y, -100vh) + 7px);
+        rotate: 11deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    35% {
+        translate:
+            calc(0.35 * var(--abyss-shy-flee-x, 100vw) + 8px)
+            calc(0.35 * var(--abyss-shy-flee-y, -100vh) - 6px);
+        rotate: -12deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    42% {
+        translate:
+            calc(0.42 * var(--abyss-shy-flee-x, 100vw) - 7px)
+            calc(0.42 * var(--abyss-shy-flee-y, -100vh) + 5px);
+        rotate: 10deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    50% {
+        translate:
+            calc(0.5 * var(--abyss-shy-flee-x, 100vw) + 6px)
+            calc(0.5 * var(--abyss-shy-flee-y, -100vh) - 5px);
+        rotate: -9deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    58% {
+        translate:
+            calc(0.58 * var(--abyss-shy-flee-x, 100vw) - 6px)
+            calc(0.58 * var(--abyss-shy-flee-y, -100vh) + 4px);
+        rotate: 8deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    66% {
+        translate:
+            calc(0.66 * var(--abyss-shy-flee-x, 100vw) + 5px)
+            calc(0.66 * var(--abyss-shy-flee-y, -100vh) - 4px);
+        rotate: -7deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    74% {
+        translate:
+            calc(0.74 * var(--abyss-shy-flee-x, 100vw) - 4px)
+            calc(0.74 * var(--abyss-shy-flee-y, -100vh) + 3px);
+        rotate: 6deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    82% {
+        translate:
+            calc(0.82 * var(--abyss-shy-flee-x, 100vw) + 3px)
+            calc(0.82 * var(--abyss-shy-flee-y, -100vh) - 2px);
+        rotate: -5deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    90% {
+        translate:
+            calc(0.9 * var(--abyss-shy-flee-x, 100vw) - 2px)
+            calc(0.9 * var(--abyss-shy-flee-y, -100vh) + 2px);
+        rotate: 4deg;
+        color: var(--abyss-shy-hidden);
+    }
+
+    100% {
+        translate: var(--abyss-shy-flee-x, 100vw) var(--abyss-shy-flee-y, -100vh);
+        rotate: 3deg;
+        opacity: 1;
+        color: var(--abyss-shy-hidden);
+    }
+}
+
+/* ========== #hadal — normal text; hover lifts clumps to slow float + letter color ========== */
+#hadal.active {
+    overflow: hidden;
+}
+
+#hadal .hadal-clump-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#hadal.hadal-clumps-paused .hadal-clump-float,
+#hadal.hadal-clumps-paused .hadal-clump-body {
+    animation-play-state: paused;
+}
+
+#hadal .hadal-clump-float {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 25;
+    pointer-events: auto;
+    line-height: 1.12;
+    will-change: transform;
+}
+
+#hadal .hadal-clump-float--jelly {
+    animation: hadal-clump-jelly-float var(--hadal-drift-duration, 65s) ease-in-out infinite;
+    animation-delay: var(--hadal-drift-delay, 0s);
+}
+
+#hadal .hadal-clump-float--squiggle {
+    animation: hadal-clump-squiggle-float var(--hadal-drift-duration, 42s) ease-in-out infinite;
+    animation-delay: var(--hadal-drift-delay, 0s);
+}
+
+#hadal .hadal-clump-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: hadal-clump-body-wiggle var(--hadal-wiggle-duration, 2.2s) ease-in-out infinite;
+    animation-delay: var(--hadal-wiggle-delay, 0s);
+}
+
+@keyframes hadal-clump-body-wiggle {
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(var(--hadal-wx, 6px), var(--hadal-wy, -4px)) rotate(var(--hadal-wr, 5deg));
+    }
+
+    50% {
+        transform: translate(calc(var(--hadal-wx, 6px) * -0.65), var(--hadal-wy, 6px))
+            rotate(calc(var(--hadal-wr, 5deg) * -0.85));
+    }
+
+    75% {
+        transform: translate(calc(var(--hadal-wx, 6px) * 0.45), calc(var(--hadal-wy, 6px) * -0.7))
+            rotate(calc(var(--hadal-wr, 5deg) * 0.55));
+    }
+}
+
+/* Ring (~14–28px from center); vowel chain extends in a random direction */
+#hadal .hadal-clump-body.hadal-clump-ring {
+    display: block;
+    width: var(--hadal-ring-size-px, 9rem);
+    height: var(--hadal-ring-size-px, 9rem);
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+}
+
+#hadal .hadal-clump-body.hadal-clump-ring .depth-letter {
+    position: absolute;
+    transform-origin: center center;
+}
+
+#hadal .hadal-clump-vowel-chain {
+    z-index: 20;
+}
+
+#hadal .hadal-clump-vowel-chain.hadal-clump-vowel-linked::after {
+    content: "";
+    position: absolute;
+    left: calc(50% + 0.28em);
+    top: 50%;
+    width: 0.55em;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.5;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#hadal .hadal-clump-body.hadal-clump-has-vowel-wave .hadal-clump-vowel-wave {
+    animation: hadal-clump-vowel-wave 3.2s ease-in-out infinite;
+    animation-delay: calc(var(--hadal-vowel-phase, 0) * -0.42s);
+}
+
+@keyframes hadal-clump-vowel-wave {
+    0%,
+    100% {
+        transform: translate(calc(-50% + var(--hadal-ring-x)), calc(-50% + var(--hadal-ring-y)))
+            rotate(var(--hadal-ring-rot));
+    }
+
+    50% {
+        transform: translate(calc(-50% + var(--hadal-ring-x)), calc(-50% + var(--hadal-ring-y) + 5px))
+            rotate(var(--hadal-ring-rot));
+    }
+}
+
+@keyframes hadal-clump-jelly-float {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    40% {
+        transform: translate(-50%, -50%)
+            translate(calc(var(--hadal-dx, 14vw) * 0.4), calc(var(--hadal-dy, 10vh) * 0.35)) rotate(2deg)
+            scale(1.03);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) translate(var(--hadal-dx, 14vw), var(--hadal-dy, 10vh))
+            rotate(-2deg) scale(1.02);
+    }
+}
+
+@keyframes hadal-clump-squiggle-float {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0) rotate(-4deg);
+    }
+
+    30% {
+        transform: translate(-50%, -50%)
+            translate(calc(var(--hadal-dx, 20vw) * 0.35), calc(var(--hadal-dy, 14vh) * 0.25)) rotate(6deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) translate(var(--hadal-dx, 20vw), var(--hadal-dy, 14vh))
+            rotate(-5deg);
+    }
+
+    85% {
+        transform: translate(-50%, -50%)
+            translate(calc(var(--hadal-dx, 20vw) * -0.25), calc(var(--hadal-dy, 14vh) * 0.7)) rotate(3deg);
+    }
+}
+
+#hadal .depth-word,
+#hadal .depth-number {
+    display: inline-block;
+}
+
+#hadal .depth-text .depth-letter.hadal-hue {
+    display: inline-block;
+    position: relative;
+    transition: color 0.35s ease;
+}
+
+#hadal .hadal-clump-float .depth-letter {
+    display: inline-block;
+    font-size: inherit;
+    transition: color 0.35s ease;
+    pointer-events: auto;
+}
+
+/* GAZE CALIBRATION */
+
+html.calibrating #webgazerGazeDot {
+    z-index: 2147483647 !important;
+    display: block !important;
+    visibility: visible !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 45% !important;
+    background: rgba(200, 40, 80, 0.55) !important;
+    background-color: rgba(200, 40, 80, 0.55) !important;
+    border: 2px solid rgba(200, 40, 80, 0.9) !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+}
+
+.gaze-calibration {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+}
+
+.gaze-calibration-panel {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2147483647;
+    color: rgb(200, 40, 80);
+    background-color: rgb(2, 0, 30);
+    border: 1px solid rgb(200, 40, 80);
+    padding: 0.75rem;
+    font-size: 14px;
+    line-height: 1.4;
+    pointer-events: auto;
+}
+
+.gaze-calibration-status {
+    font-size: 16px;
+    margin-bottom: 0.35rem;
+}
+
+.gaze-calibration-help {
+    max-width: 220px;
+    margin-bottom: 0.5rem;
+}
+
+.gaze-recalibrate,
+.gaze-done {
+    color: rgb(200, 40, 80);
+    background-color: transparent;
+    border: 1px solid rgb(200, 40, 80);
+    padding: 0.25rem 0.5rem;
+}
+
+.gaze-done {
+    margin-left: 0.4rem;
+}
+
+.gaze-calibration-dot {
+    position: fixed;
+    z-index: 2147483647;
+    width: 9 px;
+    height: 9 px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 0;
+    background-color: rgb(200, 40, 80);
+    pointer-events: auto;
+}
+
+.gaze-calibration-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    box-sizing: border-box;
+    border: 2px solid cornsilk;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+}
+
+.gaze-calibration-ring:nth-child(1) {
+    width: 64px;
+    height: 64px;
+}
+
+.gaze-calibration-ring:nth-child(2) {
+    width: 56px;
+    height: 56px;
+}
+
+.gaze-calibration-ring:nth-child(3) {
+    width: 48px;
+    height: 48px;
+}
+
+.gaze-calibration-ring:nth-child(4) {
+    width: 40px;
+    height: 40px;
+}
+
+.gaze-calibration-ring:nth-child(5) {
+    width: 32px;
+    height: 32px;
+}
+
+.gaze-calibration-ring.gaze-ring-removed {
+    opacity: 0;
+}
+
+.gaze-calibration-dot.gaze-calibrated {
+    background-color: transparent;
+}
+
+
+.dive-link {
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: transparent;
+    color: white;
+}
+
+/* Descend control — “next” text button; swimming o’s on hover (count drops per depth) */
+.depth-descend {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%) translateY(1rem);
+    z-index: 150;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    background: transparent;
+    color: cornsilk;
+    font: inherit;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.depth-descend[hidden] {
+    display: none !important;
+}
+
+.depth-descend__label {
+    position: relative;
+    z-index: 1;
+}
+
+.depth-descend__swim-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.depth-descend__swim-o {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: rgb(178, 254, 120);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 10px rgba(178, 254, 120, 0.65);
+}
+
+.depth-descend:hover .depth-descend__swim-o:not([hidden]),
+.depth-descend:focus-visible .depth-descend__swim-o:not([hidden]) {
+    opacity: 1;
+    animation: depth-descend-o-swim 3.5s ease-in-out infinite;
+    animation-delay: calc(var(--swim-i, 0) * -0.65s);
+}
+
+@keyframes depth-descend-o-swim {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(var(--swim-angle, 0deg)) translate(2.85rem) translateY(0);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(calc(var(--swim-angle, 0deg) + 90deg))
+            translate(2.5rem) translateY(-0.22rem);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(calc(var(--swim-angle, 0deg) + 180deg))
+            translate(2.85rem) translateY(0.18rem);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(calc(var(--swim-angle, 0deg) + 270deg))
+            translate(2.5rem) translateY(-0.12rem);
+    }
+}
+
+.depth-descend.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.depth-descend:hover,
+.depth-descend:focus-visible {
+    background: transparent;
+}
+
+.depth-descend:focus-visible {
+    outline: 2px solid rgba(178, 254, 120, 0.9);
+    outline-offset: 6px;
+}
+
+/* Per-depth atmosphere (background only — not letter effects) */
+html[data-depth="midnight"] #midnight.active::before {
+    filter: hue-rotate(-18deg) brightness(0.82);
+    animation-duration: 14s;
+}
+
+html[data-depth="midnight"] #midnight .depth-letter-h:hover,
+html[data-depth="midnight"] #midnight .depth-letter-h.gaze-hover {
+    color: rgb(120, 180, 255);
+}
+
+html[data-depth="abyss"] #abyss.active::before {
+    filter: hue-rotate(-32deg) brightness(0.68);
+    animation-duration: 10s;
+}
+
+html[data-depth="hadal"] #hadal.active::before {
+    filter: hue-rotate(-45deg) brightness(0.52);
+    animation-duration: 7s;
+}
+
 /* text css */

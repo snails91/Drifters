@@ -13,7 +13,7 @@
 
     <div id="intro"></div>
 
-    <div class="drifter"></div>
+    <div class="customMouse"></div>
 
 <div class="allkelps">
     <div class="kelpcontainer">
@@ -68,14 +68,14 @@
         let intro = document.querySelector("#intro");
         let body = document.querySelector("body");
 
-        let drifter = document.querySelector(".drifter");
-        let drifterX = event.clientX;
-        let drifterY = event.clientY;
+        let customMouse = document.querySelector(".customMouse");
+        let customMouseX = event.clientX;
+        let customMouseY = event.clientY;
 
         //mouse
         body.addEventListener('mousemove', function(event) {
-			drifter.style.left = event.x + "px";
-			drifter.style.top = event.y + "px";
+			customMouse.style.left = event.x + "px";
+			customMouse.style.top = event.y + "px";
 		})
 
         setTimeout(function () {

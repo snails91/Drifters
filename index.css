@@ -10,7 +10,7 @@
 
 /* MAKE VARIABLE DRIVEN - so that it can be randomized */
 
-.drifter {
+.customMouse {
 		position: absolute;
 		width: 40px;
 		height: 40px;
